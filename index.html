@@ -2,76 +2,102 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Comedor Las Dos Marías</title>
+    <title>COMEDOR LAS DOS MARÍAS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             margin: 0;
             font-family: "Georgia", "Times New Roman", serif;
-            background-color: #f4f4f4;
+            background-color: #f2f2f2;
             color: #333;
         }
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 20px auto;
             background: #ffffff;
-            border-radius: 10px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         header {
+            background: #000;
+            color: #fff;
             text-align: center;
-            padding: 20px;
-            background-color: #8b0000;
-            color: white;
+            padding: 25px 20px;
+        }
+        header img {
+            max-width: 160px;
+            margin-bottom: 10px;
         }
         header h1 {
             margin: 0;
-            font-size: 2em;
+            font-size: 1.8em;
+            letter-spacing: 2px;
         }
         header p {
-            margin: 5px 0 0;
-            font-size: 1em;
-        }
-        .hero img {
-            width: 100%;
-            height: auto;
-            display: block;
+            margin-top: 8px;
+            font-size: 0.95em;
+            opacity: 0.9;
         }
         .section {
-            padding: 20px;
+            padding: 25px;
         }
         .section h2 {
             text-align: center;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 8px;
         }
         .menu-item {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px dotted #ccc;
+            padding: 10px 0;
+            border-bottom: 1px dotted #bbb;
+            font-size: 1.05em;
         }
         .menu-item:last-child {
             border-bottom: none;
         }
+
+        /* ===== ESPECIAL DEL DÍA ===== */
         .especial {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #fdf2e9;
-            border-left: 5px solid #8b0000;
+            margin-top: 35px;
+            padding: 30px;
+            background: radial-gradient(circle at top, #fff6e5, #f3d7b6);
+            border: 3px solid #8b0000;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
         }
-        .especial h3 {
-            margin-top: 0;
+        .especial .titulo {
+            font-size: 1.8em;
+            font-weight: bold;
             color: #8b0000;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
         }
+        .especial .contenido {
+            font-size: 1.25em;
+            line-height: 1.7;
+            text-transform: uppercase;
+        }
+        .especial strong {
+            color: #5a0000;
+        }
+        .especial .nota {
+            margin-top: 15px;
+            font-size: 1em;
+            font-style: italic;
+            color: #444;
+        }
+
         footer {
             text-align: center;
-            padding: 15px;
+            padding: 18px;
             font-size: 0.9em;
-            color: #777;
             background: #fafafa;
+            color: #777;
         }
     </style>
 </head>
@@ -80,52 +106,35 @@
 <div class="container">
 
     <header>
-        <h1>Comedor Las Dos Marías</h1>
+        <img src="logo.png" alt="Logo Las Dos Marías">
+        <h1>COMEDOR LAS DOS MARÍAS</h1>
         <p id="fecha"></p>
     </header>
 
-     <div class="section">
-        <h2>Menú del Día</h2>
+    <div class="section">
+        <h2>MENÚ DEL DÍA</h2>
 
-        <div class="menu-item">
-            <span>Tlayuda especial</span>
-            <span>$90</span>
-        </div>
-        <div class="menu-item">
-            <span>Tlayuda doble</span>
-            <span>$80</span>
-        </div>
-        <div class="menu-item">
-            <span>Dobladas</span>
-            <span>$35 c/u</span>
-        </div>
-        <div class="menu-item">
-            <span>Picaditas</span>
-            <span>$20 c/u</span>
-        </div>
-        <div class="menu-item">
-            <span>Tostadas (orden)</span>
-            <span>$80</span>
-        </div>
-        <div class="menu-item">
-            <span>Empanadas (orden)</span>
-            <span>$70</span>
-        </div>
-        <div class="menu-item">
-            <span>Tamal de puerco</span>
-            <span>$25 c/u</span>
-        </div>
+        <div class="menu-item"><span>Tlayuda especial</span><span>$90</span></div>
+        <div class="menu-item"><span>Tlayuda doble</span><span>$80</span></div>
+        <div class="menu-item"><span>Dobladas</span><span>$35 c/u</span></div>
+        <div class="menu-item"><span>Picaditas</span><span>$20 c/u</span></div>
+        <div class="menu-item"><span>Tostadas (orden)</span><span>$80</span></div>
+        <div class="menu-item"><span>Empanadas (orden)</span><span>$70</span></div>
+        <div class="menu-item"><span>Tamal de puerco</span><span>$25 c/u</span></div>
 
+        <!-- ESPECIAL DEL DÍA -->
         <div class="especial">
-    <div class="icono">⭐</div>
-    <h3>Especial del Día</h3>
-    <p>
-        Deliciosa <strong>barbacoa de res</strong>,<br>
-        preparada de manera tradicional y servida<br>
-        con <strong>espagueti casero</strong> y<br>
-        <strong>tortillas recién hechas</strong>.
-    </p>
-</div>
+            <div class="titulo">⭐ ESPECIAL DEL DÍA ⭐</div>
+            <div class="contenido">
+                BARBACOA DE <strong>RES</strong><br>
+                PREPARADA DE MANERA <strong>TRADICIONAL</strong><br>
+                ACOMPAÑADA DE <strong>ESPAGUETI</strong><br>
+                Y <strong>TORTILLAS RECIÉN HECHAS</strong>
+            </div>
+            <div class="nota">
+                * Disponible únicamente el día de hoy *
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -137,10 +146,9 @@
 <script>
     const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const hoy = new Date().toLocaleDateString('es-MX', opciones);
-    document.getElementById('fecha').textContent = hoy.charAt(0).toUpperCase() + hoy.slice(1);
+    document.getElementById('fecha').textContent =
+        hoy.charAt(0).toUpperCase() + hoy.slice(1);
 </script>
 
 </body>
 </html>
-
-
