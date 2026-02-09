@@ -2,24 +2,144 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Hola Mundo</title>
+    <title>Comedor Las Dos Marías</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             margin: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f5f5;
-        }
-        h1 {
+            font-family: "Georgia", "Times New Roman", serif;
+            background-color: #f4f4f4;
             color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #8b0000;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 1em;
+        }
+        .hero img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .section {
+            padding: 20px;
+        }
+        .section h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .especial {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fdf2e9;
+            border-left: 5px solid #8b0000;
+        }
+        .especial h3 {
+            margin-top: 0;
+            color: #8b0000;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #777;
+            background: #fafafa;
         }
     </style>
 </head>
 <body>
-    <h1>¡Hola Mundo! 🌎</h1>
+
+<div class="container">
+
+    <header>
+        <h1>Comedor Las Dos Marías</h1>
+        <p id="fecha"></p>
+    </header>
+
+    <div class="hero">
+        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d" alt="Comida tradicional mexicana">
+    </div>
+
+    <div class="section">
+        <h2>Menú del Día</h2>
+
+        <div class="menu-item">
+            <span>Tlayuda especial</span>
+            <span>$90</span>
+        </div>
+        <div class="menu-item">
+            <span>Tlayuda doble</span>
+            <span>$80</span>
+        </div>
+        <div class="menu-item">
+            <span>Dobladas</span>
+            <span>$35 c/u</span>
+        </div>
+        <div class="menu-item">
+            <span>Picaditas</span>
+            <span>$20 c/u</span>
+        </div>
+        <div class="menu-item">
+            <span>Tostadas (orden)</span>
+            <span>$80</span>
+        </div>
+        <div class="menu-item">
+            <span>Empanadas (orden)</span>
+            <span>$70</span>
+        </div>
+        <div class="menu-item">
+            <span>Tamal de puerco</span>
+            <span>$25 c/u</span>
+        </div>
+
+        <div class="especial">
+            <h3>Especial del Día</h3>
+            <p>
+                Hoy contamos con <strong>barbacoa de res</strong>,<br>
+                acompañada de <strong>espagueti y tortillas</strong>.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        Agradecemos su preferencia
+    </footer>
+
+</div>
+
+<script>
+    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const hoy = new Date().toLocaleDateString('es-MX', opciones);
+    document.getElementById('fecha').textContent = hoy.charAt(0).toUpperCase() + hoy.slice(1);
+</script>
+
 </body>
 </html>
