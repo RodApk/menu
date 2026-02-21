@@ -22,7 +22,6 @@
             overflow: hidden;
         }
 
-        /* HEADER */
         header {
             display: flex;
             align-items: center;
@@ -60,7 +59,6 @@
             opacity: 0.9;
         }
 
-        /* HORARIO */
         .horario {
             text-align: center;
             padding: 12px;
@@ -71,7 +69,6 @@
             letter-spacing: 1px;
         }
 
-        /* SECCIONES */
         .section {
             padding: 30px;
         }
@@ -96,7 +93,6 @@
             padding-left: 10px;
         }
 
-        /* MENÚ */
         .menu-item {
             display: flex;
             justify-content: space-between;
@@ -109,7 +105,6 @@
             border-bottom: none;
         }
 
-        /* SERVICIOS */
         .domicilio {
             margin-top: 25px;
             padding: 15px;
@@ -151,7 +146,6 @@
 
 <div class="container">
 
-    <!-- HEADER -->
     <header>
         <img src="logo-las-dos-marias.png" alt="Logo Comedor Las Dos Marías">
         <div class="header-text">
@@ -161,14 +155,21 @@
         </div>
     </header>
 
-    <!-- HORARIO -->
     <div class="horario">
         🕘 HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
     </div>
 
-    <!-- MENÚ -->
     <div class="section">
         <h2>MENÚ DEL DÍA</h2>
+
+        <!-- GUISADO DEL DÍA -->
+        <div class="subtitulo">GUISADO DEL DÍA</div>
+
+        <div class="menu-item">
+            <span>Mondongo<br>
+            <small>(incluye tortillas)</small></span>
+            <span>$90</span>
+        </div>
 
         <!-- DESAYUNOS -->
         <div class="subtitulo">DESAYUNOS</div>
@@ -191,11 +192,6 @@
             <span>$80</span>
         </div>
 
-        <div class="menu-item">
-            <span>Hotcakes</span>
-            <span>$80</span>
-        </div>
-
         <!-- ANTOJITOS -->
         <div class="subtitulo">ANTOJITOS</div>
 
@@ -209,22 +205,6 @@
         <div class="menu-item"><span>Agua de horchata</span><span>$15 medio / $25 litro</span></div>
         <div class="menu-item"><span>Café de olla</span><span>$20 taza</span></div>
 
-        <!-- GUISADO DEL DÍA -->
-        <div class="subtitulo">GUISADO DEL DÍA</div>
-
-        <div class="menu-item">
-            <span>Pollo entomatado con verduras<br>
-            <small>(con arroz, tortillas y agua de horchata)</small></span>
-            <span>$90</span>
-        </div>
-
-        <div class="menu-item">
-            <span>Bisteces encebollados<br>
-            <small>(con arroz o frijoles y agua de horchata)</small></span>
-            <span>$90</span>
-        </div>
-
-        <!-- SERVICIOS -->
         <div class="domicilio">
             🚚 CONTAMOS CON SERVICIO A DOMICILIO
         </div>
