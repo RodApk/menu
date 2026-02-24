@@ -1,249 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>COMEDOR LAS DOS MARÍAS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COMEDOR LAS DOS MARÍAS</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Georgia", "Times New Roman", serif;
-            background-color: #f2f2f2;
-            color: #333;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
 
-        .container {
-            max-width: 750px;
-            margin: 25px auto;
-            background: #ffffff;
-            border-radius: 14px;
-            box-shadow: 0 8px 22px rgba(0,0,0,0.18);
-            overflow: hidden;
-        }
+header {
+    background-color: #f8e8d8;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 3px solid #8B0000;
+}
 
-        header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: linear-gradient(135deg, #fff7e6, #e9d3a3);
-            color: #4a2e00;
-            padding: 25px 30px;
-        }
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
 
-        header img {
-            max-width: 110px;
-        }
+header img {
+    height: 80px;
+}
 
-        .header-text {
-            flex: 1;
-            text-align: center;
-        }
+h1 {
+    margin: 0;
+    color: #8B0000;
+    font-size: 28px;
+    font-weight: bold;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 1.3em;
-            letter-spacing: 2px;
-        }
+.subinfo {
+    margin-top: 10px;
+    font-size: 14px;
+}
 
-        header .nombre {
-            margin-top: 6px;
-            font-size: 2em;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
+section {
+    padding: 20px;
+    margin: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-        header p {
-            margin-top: 8px;
-            font-size: 0.95em;
-            opacity: 0.9;
-        }
+h2 {
+    color: #8B0000;
+    border-bottom: 2px solid #8B0000;
+    padding-bottom: 5px;
+}
 
-        .horario {
-            text-align: center;
-            padding: 12px;
-            background: #f8f1e1;
-            border-bottom: 1px solid #e0d3b8;
-            font-weight: bold;
-            color: #5a0000;
-            letter-spacing: 1px;
-        }
+.menu-item {
+    margin: 10px 0;
+    font-size: 16px;
+}
 
-        .section {
-            padding: 30px;
-        }
+.price {
+    float: right;
+    font-weight: bold;
+}
 
-        .section h2 {
-            text-align: center;
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #cfcfcf;
-            padding-bottom: 8px;
-            letter-spacing: 2px;
-        }
-
-        .subtitulo {
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-            font-weight: bold;
-            letter-spacing: 1px;
-            color: #6b3f00;
-            border-left: 5px solid #e9d3a3;
-            padding-left: 10px;
-        }
-
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px dotted #bbb;
-            font-size: 1.05em;
-        }
-
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-
-        .domicilio {
-            margin-top: 25px;
-            padding: 15px;
-            background: #f8f1e1;
-            border-left: 5px solid #8b0000;
-            text-align: center;
-            font-size: 1.05em;
-            font-weight: bold;
-            color: #5a0000;
-        }
-
-        .whatsapp {
-            margin-top: 20px;
-            padding: 18px;
-            background: #e9f7ef;
-            border-left: 5px solid #25d366;
-            text-align: center;
-            font-size: 1em;
-        }
-
-        .whatsapp a {
-            display: inline-block;
-            margin: 6px 10px;
-            text-decoration: none;
-            color: #075e54;
-            font-weight: bold;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
-            background: #fafafa;
-            color: #777;
-        }
-    </style>
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #8B0000;
+    color: white;
+    font-size: 14px;
+}
+.whatsapp-link {
+    display: block;
+    margin-top: 10px;
+    color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+}
+</style>
 </head>
+
 <body>
 
-<div class="container">
-
-    <header>
-        <img src="logo-las-dos-marias.png" alt="Logo Comedor Las Dos Marías">
-        <div class="header-text">
-            <h1>COMEDOR</h1>
-            <div class="nombre">LAS DOS MARÍAS</div>
-            <p id="fecha"></p>
-        </div>
-    </header>
-
-    <div class="horario">
-        🕘 HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
+<header>
+    <div class="header-container">
+        <img src="logo.png" alt="Logo Comedor">
+        <h1>COMEDOR LAS DOS MARÍAS</h1>
     </div>
-
-    <div class="section">
-        <h2>MENÚ DEL DÍA</h2>
-
-        <!-- COMIDA DEL DÍA -->
-        <div class="subtitulo">COMIDA DEL DÍA</div>
-
-        <div class="menu-item">
-            <span>Bisteces encebollados<br>
-            <small>(con tortillas y agua de horchata)</small></span>
-            <span>$90</span>
-        </div>
-
-        <div class="menu-item">
-            <span>Picadillo de res a la mexicana<br>
-            <small>(con frijoles y agua de horchata)</small></span>
-            <span>$90</span>
-        </div>
-
-        <div class="menu-item">
-            <span>Hamburguesa al carbón<br>
-            <small>(con queso amarillo, lechuga, tomate y piña)</small></span>
-            <span>$90</span>
-        </div>
-
-        <!-- DESAYUNOS -->
-        <div class="subtitulo">DESAYUNOS</div>
-
-        <div class="menu-item">
-            <span>Huevos con jamón o chorizo<br>
-            <small>(con frijoles y tortillas)</small></span>
-            <span>$80</span>
-        </div>
-
-        <div class="menu-item">
-            <span>Huevos estrellados<br>
-            <small>(con arroz y tortillas)</small></span>
-            <span>$80</span>
-        </div>
-
-        <div class="menu-item">
-            <span>Omelette de jamón, chorizo o quesillo<br>
-            <small>(con frijoles y tortillas)</small></span>
-            <span>$80</span>
-        </div>
-
-        <!-- ANTOJITOS -->
-        <div class="subtitulo">ANTOJITOS</div>
-
-        <div class="menu-item"><span>Tlayuda especial (cecina, chorizo y quesillo)</span><span>$90</span></div>
-        <div class="menu-item"><span>Tlayuda doble</span><span>$80</span></div>
-        <div class="menu-item"><span>Dobladas (cecina, chorizo y quesillo)</span><span>$35 c/u</span></div>
-        <div class="menu-item"><span>Picaditas</span><span>$20 c/u</span></div>
-        <div class="menu-item"><span>Tostadas (orden de 4)</span><span>$80</span></div>
-        <div class="menu-item"><span>Empanadas (orden de 5)</span><span>$70</span></div>
-        <div class="menu-item"><span>Agua de jamaica / horchata</span><span>$15 medio / $25 litro</span></div>
-        <div class="menu-item"><span>Coca-Cola 600 ml</span><span>$25</span></div>
-        <div class="menu-item"><span>Café de olla</span><span>$20 taza</span></div>
-
-        <div class="domicilio">
-            🚚 CONTAMOS CON SERVICIO A DOMICILIO
-        </div>
-
-        <div class="whatsapp">
-            📲 PEDIDOS POR WHATSAPP:<br>
-            <a href="https://wa.me/529531543729" target="_blank">953 154 3729</a> |
-            <a href="https://wa.me/525634754554" target="_blank">56 3475 4554</a>
-            <br><br>
-            👥 <a href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO?mode=gi_t" target="_blank">
-            ÚNETE AL GRUPO DE WHATSAPP
-            </a>
-        </div>
+    <div class="subinfo">
+        Servicio a domicilio <br>
+        Horario: 10 AM a 10 PM <br>
+        WhatsApp: 953 154 3729 | 56 3475 4554
     </div>
+</header>
 
-    <footer>
-        Agradecemos su preferencia
-    </footer>
+<section>
+    <h2>COMIDA DEL DÍA</h2>
+    <div class="menu-item">
+        Bisteces encebollados (con tortillas y agua de horchata)
+        <span class="price">$90</span>
+    </div>
+    <div class="menu-item">
+        Picadillo de res a la mexicana con frijoles y agua de horchata
+        <span class="price">$90</span>
+    </div>
+    <div class="menu-item">
+        Hamburguesa al carbón (con queso amarillo, lechuga, tomate y piña)
+        <span class="price">$90</span>
+    </div>
+</section>
 
-</div>
+<section>
+    <h2>DESAYUNOS</h2>
+    <div class="menu-item">
+        Huevos con jamón o chorizo con frijoles y tortillas
+        <span class="price">$80</span>
+    </div>
+    <div class="menu-item">
+        Omelette de jamón, chorizo o quesillo con frijoles y tortillas
+        <span class="price">$80</span>
+    </div>
+    <div class="menu-item">
+        Huevos estrellados con arroz y tortillas
+        <span class="price">$80</span>
+    </div>
+</section>
 
-<script>
-    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const hoy = new Date().toLocaleDateString('es-MX', opciones);
-    document.getElementById('fecha').textContent =
-        hoy.charAt(0).toUpperCase() + hoy.slice(1);
-</script>
+<section>
+    <h2>ANTOJITOS</h2>
+    <div class="menu-item">
+        Tlayudas
+    </div>
+    <div class="menu-item">
+        Empanadas
+    </div>
+    <div class="menu-item">
+        Garnachas
+    </div>
+</section>
+
+<section>
+    <h2>BEBIDAS</h2>
+    <div class="menu-item">
+        Agua de jamaica / Agua de horchata
+        <span class="price">$20</span>
+    </div>
+    <div class="menu-item">
+        Coca-Cola 600 ml
+        <span class="price">$25</span>
+    </div>
+</section>
+
+<footer>
+    © 2026 COMEDOR LAS DOS MARÍAS - Matías Romero, Oaxaca
+    <a class="whatsapp-link" href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO?mode=gi_t" target="_blank">
+        ÚNETE AL GRUPO DE WHATSAPP
+    </a>
+</footer>
 
 </body>
 </html>
