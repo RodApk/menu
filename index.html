@@ -7,27 +7,21 @@
 
 <style>
 body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color:#f8f6f2;
+    font-family: Arial, sans-serif;
     margin:0;
     padding:0;
+    background:#ffffff;
     color:#333;
 }
 
 header{
     text-align:center;
-    padding:30px 20px 10px 20px;
+    padding:20px;
+    background:#f4f4f4;
 }
 
 h1{
     margin:0;
-    font-size:32px;
-    letter-spacing:2px;
-}
-
-.subtitulo{
-    font-size:14px;
-    color:#777;
 }
 
 .container{
@@ -37,21 +31,18 @@ h1{
 }
 
 .seccion{
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
 .seccion h2{
-    border-bottom:2px solid #c9a227;
+    border-bottom:1px solid #ccc;
     padding-bottom:5px;
-    font-size:22px;
-    margin-bottom:15px;
 }
 
 .item{
     display:flex;
     justify-content:space-between;
-    margin-bottom:10px;
-    font-size:16px;
+    margin:8px 0;
 }
 
 .precio{
@@ -60,9 +51,9 @@ h1{
 
 .footer{
     text-align:center;
-    font-size:14px;
     padding:20px;
-    color:#555;
+    font-size:14px;
+    background:#f4f4f4;
 }
 
 /* Botón flotante */
@@ -72,17 +63,11 @@ h1{
     right: 20px;
     background-color: #25D366;
     color: white;
-    padding: 14px 22px;
-    border-radius: 30px;
+    padding: 12px 18px;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     z-index: 9999;
-}
-
-.whatsapp-float:active {
-    transform: scale(0.95);
 }
 </style>
 </head>
@@ -91,18 +76,13 @@ h1{
 
 <header>
     <h1>Comedor Las Dos Marías</h1>
-    <div class="subtitulo">Horario de servicio: 10:00 am a 10:00 pm</div>
+    <p>Horario: 10:00 am a 10:00 pm</p>
 </header>
 
 <div class="container">
 
     <div class="seccion">
         <h2>Comida del Día</h2>
-
-        <div class="item">
-            <span>Pollo frito (con frijoles, arroz o espagueti y agua de jamaica o horchata, incluye tortillas)</span>
-            <span class="precio">$90</span>
-        </div>
 
         <div class="item">
             <span>Bisteces encebollados (con arroz, tortillas y agua de jamaica o horchata)</span>
@@ -115,7 +95,7 @@ h1{
         </div>
 
         <div class="item">
-            <span>Hamburguesa al carbón (con queso amarillo, lechuga, tomate y piña, incluye tortillas y agua)</span>
+            <span>Hamburguesa al carbón (con queso amarillo, lechuga, tomate y piña)</span>
             <span class="precio">$90</span>
         </div>
     </div>
