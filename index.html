@@ -1,247 +1,303 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>COMEDOR LAS DOS MARÍAS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>COMEDOR LAS DOS MARÍAS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Georgia", "Times New Roman", serif;
-            background-color: #f2f2f2;
-            color: #333;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-        .container {
-            max-width: 750px;
-            margin: 25px auto;
-            background: #ffffff;
-            border-radius: 14px;
-            box-shadow: 0 8px 22px rgba(0,0,0,0.18);
-            overflow: hidden;
-        }
+<style>
+body{
+    margin:0;
+    font-family:'Montserrat', sans-serif;
+    background:linear-gradient(to bottom,#f4f1ea,#e9e2d6);
+    color:#333;
+}
 
-        header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: linear-gradient(135deg, #fff7e6, #e9d3a3);
-            color: #4a2e00;
-            padding: 25px 30px;
-        }
+.container{
+    max-width:850px;
+    margin:50px auto;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 20px 45px rgba(0,0,0,0.18);
+    overflow:hidden;
+}
 
-        header img {
-            max-width: 110px;
-        }
+header{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:35px;
+    background:#faf6ef;
+    border-bottom:1px solid #e5d7c2;
+}
 
-        .header-text {
-            flex: 1;
-            text-align: center;
-        }
+header img{
+    width:120px;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 1.3em;
-            letter-spacing: 2px;
-        }
+.header-text{
+    flex:1;
+    text-align:center;
+}
 
-        header .nombre {
-            margin-top: 6px;
-            font-size: 2em;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
+header h1{
+    font-family:'Playfair Display', serif;
+    margin:0;
+    font-size:1.1em;
+    letter-spacing:4px;
+    color:#6b3f00;
+}
 
-        header p {
-            margin-top: 8px;
-            font-size: 0.95em;
-            opacity: 0.9;
-        }
+.nombre{
+    font-family:'Playfair Display', serif;
+    font-size:2.6em;
+    font-weight:700;
+    letter-spacing:5px;
+    margin-top:6px;
+    color:#4a2e00;
+}
 
-        .horario {
-            text-align: center;
-            padding: 12px;
-            background: #f8f1e1;
-            border-bottom: 1px solid #e0d3b8;
-            font-weight: bold;
-            color: #5a0000;
-            letter-spacing: 1px;
-        }
+header p{
+    margin-top:8px;
+    font-size:0.9em;
+    color:#777;
+}
 
-        .section {
-            padding: 30px;
-        }
+.horario{
+    text-align:center;
+    padding:15px;
+    background:#fff;
+    font-weight:600;
+    letter-spacing:1px;
+    border-bottom:1px solid #eee;
+}
 
-        .section h2 {
-            text-align: center;
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #cfcfcf;
-            padding-bottom: 8px;
-            letter-spacing: 2px;
-        }
+/* MARCO DORADO */
+.comida-dia-box{
+    margin:40px 30px;
+    padding:30px;
+    border:3px solid #d4af37;
+    border-radius:18px;
+    background:linear-gradient(145deg,#fffdf7,#f8f2e4);
+    box-shadow:0 10px 25px rgba(212,175,55,0.25);
+}
 
-        .subtitulo {
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-            font-weight: bold;
-            letter-spacing: 1px;
-            color: #6b3f00;
-            border-left: 5px solid #e9d3a3;
-            padding-left: 10px;
-        }
+.section{
+    padding:30px 40px 40px 40px;
+}
 
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px dotted #bbb;
-            font-size: 1.05em;
-        }
+.section h2{
+    text-align:center;
+    font-family:'Playfair Display', serif;
+    font-size:1.7em;
+    margin-bottom:25px;
+    letter-spacing:3px;
+    color:#6b3f00;
+}
 
-        .menu-item:last-child {
-            border-bottom: none;
-        }
+.subtitulo{
+    margin-top:25px;
+    margin-bottom:15px;
+    font-weight:600;
+    letter-spacing:2px;
+    font-size:1.1em;
+    color:#8b0000;
+    border-bottom:1px solid #ddd;
+    padding-bottom:6px;
+}
 
-        .domicilio {
-            margin-top: 25px;
-            padding: 15px;
-            background: #f8f1e1;
-            border-left: 5px solid #8b0000;
-            text-align: center;
-            font-size: 1.05em;
-            font-weight: bold;
-            color: #5a0000;
-        }
+.menu-item{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid #f0f0f0;
+    font-size:1.05em;
+}
 
-        .whatsapp {
-            margin-top: 20px;
-            padding: 18px;
-            background: #e9f7ef;
-            border-left: 5px solid #25d366;
-            text-align: center;
-            font-size: 1em;
-        }
+.menu-item small{
+    display:block;
+    font-size:0.85em;
+    color:#777;
+    margin-top:3px;
+}
 
-        .whatsapp a {
-            display: inline-block;
-            margin: 6px 10px;
-            text-decoration: none;
-            color: #075e54;
-            font-weight: bold;
-        }
+.menu-item span:last-child{
+    font-weight:700;
+    color:#6b3f00;
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
-            background: #fafafa;
-            color: #777;
-        }
-    </style>
+.domicilio{
+    margin-top:35px;
+    padding:18px;
+    text-align:center;
+    font-weight:600;
+    background:#faf6ef;
+    border-radius:12px;
+}
+
+.whatsapp{
+    margin-top:25px;
+    padding:20px;
+    text-align:center;
+    background:#f4fbf7;
+    border-radius:12px;
+}
+
+.whatsapp a{
+    text-decoration:none;
+    font-weight:600;
+    color:#0a5c3b;
+}
+
+/* BOTÓN FLOTANTE */
+.whatsapp-float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:25px;
+    right:25px;
+    background:#25d366;
+    border-radius:50%;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;
+    z-index:100;
+}
+
+.whatsapp-float img{
+    width:35px;
+    margin-top:12px;
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7);}
+    70%{box-shadow:0 0 0 15px rgba(37,211,102,0);}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    font-size:0.85em;
+    background:#fafafa;
+    color:#999;
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
 
-    <header>
-        <img src="logo-las-dos-marias.png" alt="Logo Comedor Las Dos Marías">
-        <div class="header-text">
-            <h1>COMEDOR</h1>
-            <div class="nombre">LAS DOS MARÍAS</div>
-            <p id="fecha"></p>
-        </div>
-    </header>
-
-    <div class="horario">
-        🕘 HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
+<header>
+    <img src="logo-las-dos-marias.png" alt="Logo Comedor Las Dos Marías">
+    <div class="header-text">
+        <h1>COMEDOR</h1>
+        <div class="nombre">LAS DOS MARÍAS</div>
+        <p id="fecha"></p>
     </div>
+</header>
 
-    <div class="section">
-        <h2>MENÚ DEL DÍA</h2>
+<div class="horario">
+    HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
+</div>
 
-        <!-- COMIDA DEL DÍA -->
-        <div class="subtitulo">COMIDA DEL DÍA</div>
+<div class="section">
 
-        <div class="menu-item">
-            <span>Bisteces encebollados<br>
-            <small>(con tortillas y agua de horchata)</small></span>
-            <span>$90</span>
-        </div>
+<h2>MENÚ DEL DÍA</h2>
 
-        <div class="menu-item">
-            <span>Picadillo de res a la mexicana<br>
-            <small>(con frijoles y agua de horchata)</small></span>
-            <span>$90</span>
-        </div>
+<div class="comida-dia-box">
 
-        <div class="menu-item">
-            <span>Hamburguesa al carbón<br>
-            <small>(con queso amarillo, lechuga, tomate y piña)</small></span>
-            <span>$90</span>
-        </div>
+<div class="subtitulo">COMIDA DEL DÍA</div>
 
-        <!-- DESAYUNOS -->
-        <div class="subtitulo">DESAYUNOS</div>
+<div class="menu-item">
+<span>Pollo frito
+<small>(con frijoles, arroz o espagueti, tortillas y agua de jamaica o horchata)</small></span>
+<span>$90</span>
+</div>
 
-        <div class="menu-item">
-            <span>Huevos con jamón o chorizo<br>
-            <small>(con frijoles y tortillas)</small></span>
-            <span>$80</span>
-        </div>
+<div class="menu-item">
+<span>Bisteces encebollados
+<small>(con arroz, tortillas y agua de jamaica o horchata)</small></span>
+<span>$90</span>
+</div>
 
-        <div class="menu-item">
-            <span>Huevos estrellados<br>
-            <small>(con arroz y tortillas)</small></span>
-            <span>$80</span>
-        </div>
+<div class="menu-item">
+<span>Picadillo de res a la mexicana
+<small>(con arroz, frijoles, tortillas y agua de jamaica o horchata)</small></span>
+<span>$90</span>
+</div>
 
-        <div class="menu-item">
-            <span>Omelette de jamón, chorizo o quesillo<br>
-            <small>(con frijoles y tortillas)</small></span>
-            <span>$80</span>
-        </div>
-
-        <!-- ANTOJITOS -->
-        <div class="subtitulo">ANTOJITOS</div>
-
-        <div class="menu-item"><span>Tlayuda especial (cecina, chorizo y quesillo)</span><span>$90</span></div>
-        <div class="menu-item"><span>Tlayuda doble</span><span>$80</span></div>
-        <div class="menu-item"><span>Picaditas</span><span>$20 c/u</span></div>
-        <div class="menu-item"><span>Tostadas (orden de 4)</span><span>$80</span></div>
-        <div class="menu-item"><span>Empanadas (orden de 5)</span><span>$70</span></div>
-        <div class="menu-item"><span>Agua de jamaica / horchata</span><span>$15 medio / $25 litro</span></div>
-        <div class="menu-item"><span>Coca-Cola 600 ml</span><span>$25</span></div>
-        <div class="menu-item"><span>Café de olla</span><span>$20 taza</span></div>
-
-        <div class="domicilio">
-            🚚 CONTAMOS CON SERVICIO A DOMICILIO
-        </div>
-
-        <div class="whatsapp">
-            📲 PEDIDOS POR WHATSAPP:<br>
-            <a href="https://wa.me/529531543729" target="_blank">953 154 3729</a> |
-            <a href="https://wa.me/525634754554" target="_blank">56 3475 4554</a>
-            <br><br>
-            👥 <a href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO?mode=gi_t" target="_blank">
-            ÚNETE AL GRUPO DE WHATSAPP
-            </a>
-        </div>
-    </div>
-
-    <footer>
-        Agradecemos su preferencia
-    </footer>
+<div class="menu-item">
+<span>Hamburguesa al carbón
+<small>(con queso amarillo, lechuga, tomate y piña, tortillas)</small></span>
+<span>$90</span>
+</div>
 
 </div>
 
+<div class="subtitulo">DESAYUNOS</div>
+
+<div class="menu-item">
+<span>Huevos con jamón o chorizo
+<small>(con frijoles y tortillas)</small></span>
+<span>$80</span>
+</div>
+
+<div class="menu-item">
+<span>Huevos estrellados
+<small>(con arroz y tortillas)</small></span>
+<span>$80</span>
+</div>
+
+<div class="menu-item">
+<span>Omelette de jamón, chorizo o quesillo
+<small>(con frijoles y tortillas)</small></span>
+<span>$80</span>
+</div>
+
+<div class="menu-item">
+<span>Hot Cakes</span>
+<span>$80</span>
+</div>
+
+<div class="subtitulo">ANTOJITOS</div>
+
+<div class="menu-item"><span>Tlayuda especial (cecina, chorizo y quesillo)</span><span>$90</span></div>
+<div class="menu-item"><span>Tlayuda doble</span><span>$80</span></div>
+<div class="menu-item"><span>Picaditas</span><span>$20 c/u</span></div>
+<div class="menu-item"><span>Empanadas (orden de 5)</span><span>$70</span></div>
+<div class="menu-item"><span>Agua de jamaica / horchata</span><span>$15 medio / $25 litro</span></div>
+<div class="menu-item"><span>Coca-Cola 600 ml</span><span>$25</span></div>
+
+<div class="domicilio">
+🚚 CONTAMOS CON SERVICIO A DOMICILIO
+</div>
+
+<div class="whatsapp">
+📲 PEDIDOS: 953 154 3729 | 56 3475 4554
+</div>
+
+</div>
+
+<footer>
+Agradecemos su preferencia
+</footer>
+
+</div>
+
+<!-- BOTÓN FLOTANTE -->
+<a href="https://wa.me/529531543729" class="whatsapp-float" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
+
 <script>
-    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const hoy = new Date().toLocaleDateString('es-MX', opciones);
-    document.getElementById('fecha').textContent =
-        hoy.charAt(0).toUpperCase() + hoy.slice(1);
+const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const hoy = new Date().toLocaleDateString('es-MX', opciones);
+document.getElementById('fecha').textContent =
+hoy.charAt(0).toUpperCase() + hoy.slice(1);
 </script>
 
 </body>
