@@ -11,30 +11,33 @@
 body{
     margin:0;
     font-family:'Montserrat', sans-serif;
-    background:linear-gradient(to bottom,#f4f1ea,#e9e2d6);
-    color:#333;
+    background:#111;
+    color:#eaeaea;
 }
 
 .container{
-    max-width:850px;
-    margin:50px auto;
-    background:#fff;
-    border-radius:20px;
-    box-shadow:0 20px 45px rgba(0,0,0,0.18);
+    max-width:900px;
+    margin:60px auto;
+    background:#1a1a1a;
+    border-radius:18px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.6);
     overflow:hidden;
+    border:1px solid #2a2a2a;
 }
 
+/* ENCABEZADO ACLARADO */
 header{
     display:flex;
     align-items:center;
     gap:20px;
-    padding:35px;
-    background:#faf6ef;
-    border-bottom:1px solid #e5d7c2;
+    padding:40px;
+    background:linear-gradient(135deg,#222,#333);
+    border-bottom:1px solid #3a3a3a;
 }
 
 header img{
-    width:120px;
+    width:110px;
+    filter:drop-shadow(0 0 10px rgba(255,215,140,0.6));
 }
 
 .header-text{
@@ -45,127 +48,136 @@ header img{
 header h1{
     font-family:'Playfair Display', serif;
     margin:0;
-    font-size:1.1em;
-    letter-spacing:4px;
-    color:#6b3f00;
+    font-size:1em;
+    letter-spacing:6px;
+    color:#c6a75e;
 }
 
 .nombre{
     font-family:'Playfair Display', serif;
-    font-size:2.6em;
+    font-size:2.7em;
     font-weight:700;
-    letter-spacing:5px;
-    margin-top:6px;
-    color:#4a2e00;
+    letter-spacing:6px;
+    margin-top:8px;
+    color:#f5d78e;
 }
 
 header p{
-    margin-top:8px;
-    font-size:0.9em;
-    color:#777;
+    margin-top:10px;
+    font-size:0.85em;
+    color:#ccc;
 }
 
 .horario{
     text-align:center;
-    padding:15px;
-    background:#fff;
-    font-weight:600;
-    letter-spacing:1px;
-    border-bottom:1px solid #eee;
+    padding:18px;
+    background:#181818;
+    letter-spacing:2px;
+    border-bottom:1px solid #2c2c2c;
+    color:#c6a75e;
 }
 
 .section{
-    padding:30px 40px 40px 40px;
+    padding:40px;
 }
 
 .section h2{
     text-align:center;
     font-family:'Playfair Display', serif;
-    font-size:1.7em;
-    margin-bottom:25px;
-    letter-spacing:3px;
-    color:#6b3f00;
+    font-size:1.8em;
+    margin-bottom:30px;
+    letter-spacing:4px;
+    color:#f5d78e;
 }
 
 .subtitulo{
-    margin-top:30px;
+    margin-top:35px;
     margin-bottom:15px;
-    font-weight:600;
-    letter-spacing:2px;
-    font-size:1.1em;
-    color:#8b0000;
-    border-bottom:1px solid #ddd;
-    padding-bottom:6px;
+    letter-spacing:3px;
+    font-size:1em;
+    color:#c6a75e;
+    border-bottom:1px solid #333;
+    padding-bottom:8px;
 }
 
 .menu-item{
     display:flex;
     justify-content:space-between;
-    padding:14px 0;
-    border-bottom:1px solid #f0f0f0;
+    padding:16px 0;
+    border-bottom:1px solid #2a2a2a;
     font-size:1.05em;
 }
 
 .menu-item small{
     display:block;
     font-size:0.85em;
-    color:#777;
-    margin-top:3px;
+    color:#aaa;
+    margin-top:4px;
+}
+
+.promo{
+    color:#ffcc66;
+    font-weight:600;
+    font-size:0.8em;
+    margin-top:6px;
 }
 
 .menu-item span:last-child{
-    font-weight:700;
-    color:#6b3f00;
+    font-weight:600;
+    color:#f5d78e;
 }
 
 .domicilio{
     margin-top:35px;
-    padding:18px;
+    padding:20px;
     text-align:center;
-    font-weight:600;
-    background:#faf6ef;
+    background:#181818;
     border-radius:12px;
+    border:1px solid #2c2c2c;
+    color:#c6a75e;
 }
 
 .whatsapp{
     margin-top:25px;
     padding:20px;
     text-align:center;
-    background:#f4fbf7;
+    background:#151515;
     border-radius:12px;
+    border:1px solid #2c2c2c;
 }
 
 .whatsapp-float{
     position:fixed;
-    width:60px;
-    height:60px;
+    width:65px;
+    height:65px;
     bottom:25px;
     right:25px;
     background:#25d366;
     border-radius:50%;
     text-align:center;
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    box-shadow:0 8px 25px rgba(0,0,0,0.5);
     animation:pulse 2s infinite;
     z-index:100;
 }
 
 .whatsapp-float img{
-    width:35px;
-    margin-top:12px;
+    width:38px;
+    margin-top:13px;
 }
 
 @keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7);}
-    70%{box-shadow:0 0 0 15px rgba(37,211,102,0);}
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,0.6);}
+    70%{box-shadow:0 0 0 18px rgba(37,211,102,0);}
     100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
 }
 
 footer{
     text-align:center;
-    padding:25px;
-    font-size:0.85em;
-    background:#fafafa;
-    color:#999;
+    padding:30px;
+    font-size:0.8em;
+    background:#141414;
+    color:#777;
+    letter-spacing:2px;
 }
 </style>
 </head>
@@ -194,6 +206,12 @@ footer{
 <div class="subtitulo">COMIDA DEL DÍA</div>
 
 <div class="menu-item">
+<span>Mondongo
+<small>(con frijoles, arroz o espagueti, tortillas y agua de horchata o jamaica)</small></span>
+<span>$90</span>
+</div>
+
+<div class="menu-item">
 <span>Pollo frito
 <small>(con plátanos fritos, frijoles, arroz o espagueti, tortillas y agua de horchata o jamaica)</small></span>
 <span>$90</span>
@@ -219,7 +237,9 @@ footer{
 
 <div class="menu-item">
 <span>Hamburguesa al carbón
-<small>(con queso amarillo, lechuga, tomate y piña)</small></span>
+<small>(con queso amarillo, lechuga, tomate y piña)</small>
+<div class="promo">🔥 En la compra de una, llévate una mezcalina gratis</div>
+</span>
 <span>$90</span>
 </div>
 
@@ -275,13 +295,18 @@ footer{
 </div>
 
 <div class="menu-item">
-<span>🥤 Coca-Cola 600 ml</span>
-<span>$25</span>
+<span>🥃 Mezcalina de nanche</span>
+<span>$50</span>
 </div>
 
 <div class="menu-item">
-<span>🥃 Mezcalina de nanche</span>
+<span>🥃 Mezcalina de jamaica</span>
 <span>$50</span>
+</div>
+
+<div class="menu-item">
+<span>🥃 Mezcalina Bull</span>
+<span>$60</span>
 </div>
 
 <div class="domicilio">
