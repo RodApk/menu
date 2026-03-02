@@ -11,7 +11,7 @@
 body{
     margin:0;
     font-family:'Montserrat', sans-serif;
-    background:#111;
+    background:#0f0f0f;
     color:#eaeaea;
 }
 
@@ -20,23 +20,30 @@ body{
     margin:60px auto;
     background:#1a1a1a;
     border-radius:18px;
-    box-shadow:0 25px 60px rgba(0,0,0,0.6);
+    box-shadow:0 25px 60px rgba(0,0,0,0.7);
     overflow:hidden;
     border:1px solid #2a2a2a;
 }
 
+/* HEADER PREMIUM */
 header{
     display:flex;
     align-items:center;
     gap:20px;
-    padding:40px;
-    background:linear-gradient(135deg,#222,#333);
+    padding:45px;
+    background:linear-gradient(135deg,#242424,#303030);
     border-bottom:1px solid #3a3a3a;
 }
 
 header img{
     width:110px;
-    filter:drop-shadow(0 0 10px rgba(255,215,140,0.6));
+    animation:glow 3s infinite ease-in-out;
+}
+
+@keyframes glow{
+    0%{filter:drop-shadow(0 0 6px rgba(212,175,55,0.4));}
+    50%{filter:drop-shadow(0 0 18px rgba(212,175,55,0.8));}
+    100%{filter:drop-shadow(0 0 6px rgba(212,175,55,0.4));}
 }
 
 .header-text{
@@ -47,24 +54,33 @@ header img{
 header h1{
     font-family:'Playfair Display', serif;
     margin:0;
-    font-size:1em;
+    font-size:0.95em;
     letter-spacing:6px;
-    color:#c6a75e;
+    color:#d4af37;
 }
 
 .nombre{
     font-family:'Playfair Display', serif;
-    font-size:2.7em;
+    font-size:2.8em;
     font-weight:700;
     letter-spacing:6px;
-    margin-top:8px;
-    color:#f5d78e;
+    margin-top:10px;
+    color:#f1d27a;
+}
+
+.nombre::after{
+    content:"";
+    display:block;
+    width:120px;
+    height:2px;
+    margin:15px auto 0;
+    background:linear-gradient(to right,transparent,#d4af37,transparent);
 }
 
 header p{
-    margin-top:10px;
+    margin-top:12px;
     font-size:0.85em;
-    color:#ccc;
+    color:#bbb;
 }
 
 .horario{
@@ -73,28 +89,36 @@ header p{
     background:#181818;
     letter-spacing:2px;
     border-bottom:1px solid #2c2c2c;
-    color:#c6a75e;
+    color:#d4af37;
 }
 
 .section{
-    padding:40px;
+    padding:45px;
 }
 
 .section h2{
     text-align:center;
     font-family:'Playfair Display', serif;
-    font-size:1.8em;
-    margin-bottom:30px;
+    font-size:1.9em;
+    margin-bottom:20px;
     letter-spacing:4px;
-    color:#f5d78e;
+    color:#f1d27a;
+}
+
+.section h2::after{
+    content:"✦";
+    display:block;
+    font-size:18px;
+    color:#d4af37;
+    margin-top:8px;
 }
 
 .subtitulo{
-    margin-top:35px;
+    margin-top:40px;
     margin-bottom:15px;
     letter-spacing:3px;
     font-size:1em;
-    color:#c6a75e;
+    color:#d4af37;
     border-bottom:1px solid #333;
     padding-bottom:8px;
 }
@@ -102,38 +126,48 @@ header p{
 .menu-item{
     display:flex;
     justify-content:space-between;
-    padding:16px 0;
+    padding:18px 0;
     border-bottom:1px solid #2a2a2a;
     font-size:1.05em;
+    transition:all 0.3s ease;
+}
+
+.menu-item:hover{
+    transform:translateX(6px);
+    color:#f1d27a;
 }
 
 .menu-item small{
     display:block;
     font-size:0.85em;
     color:#aaa;
-    margin-top:4px;
-}
-
-.promo{
-    color:#ffcc66;
-    font-weight:600;
-    font-size:0.8em;
-    margin-top:6px;
+    margin-top:5px;
 }
 
 .menu-item span:last-child{
     font-weight:600;
-    color:#f5d78e;
+    color:#f1d27a;
+    position:relative;
+}
+
+.menu-item span:last-child::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:100%;
+    height:1px;
+    background:linear-gradient(to right,#d4af37,transparent);
 }
 
 .domicilio{
-    margin-top:35px;
+    margin-top:40px;
     padding:20px;
     text-align:center;
     background:#181818;
     border-radius:12px;
     border:1px solid #2c2c2c;
-    color:#c6a75e;
+    color:#d4af37;
 }
 
 .whatsapp{
@@ -147,8 +181,8 @@ header p{
 
 .whatsapp-float{
     position:fixed;
-    width:70px;
-    height:70px;
+    width:65px;
+    height:65px;
     bottom:25px;
     right:25px;
     background:#25d366;
@@ -160,8 +194,8 @@ header p{
 }
 
 .whatsapp-float img{
-    width:40px;
-    margin-top:15px;
+    width:38px;
+    margin-top:13px;
 }
 
 @keyframes pulse{
@@ -172,7 +206,7 @@ header p{
 
 footer{
     text-align:center;
-    padding:30px;
+    padding:35px;
     font-size:0.8em;
     background:#141414;
     color:#777;
@@ -205,39 +239,32 @@ footer{
 <div class="subtitulo">COMIDA DEL DÍA</div>
 
 <div class="menu-item">
-<span>Mondongo (1 litro)</span>
-<span>$90</span>
-</div>
-
-<div class="menu-item">
 <span>Pollo frito
-<small>(con plátanos fritos, frijoles, arroz o espagueti y tortillas)</small></span>
+<small>(con plátanos fritos, frijoles, arroz o espagueti, tortillas e incluye agua de horchata o jamaica)</small></span>
 <span>$90</span>
 </div>
 
 <div class="menu-item">
 <span>Bisteces encebollados
-<small>(con frijoles, arroz o espagueti y tortillas)</small></span>
+<small>(con frijoles, arroz o espagueti, tortillas e incluye agua de horchata o jamaica)</small></span>
 <span>$90</span>
 </div>
 
 <div class="menu-item">
 <span>Picadillo de res a la mexicana
-<small>(con frijoles, arroz o espagueti y tortillas)</small></span>
+<small>(con frijoles, arroz o espagueti, tortillas e incluye agua de horchata o jamaica)</small></span>
 <span>$90</span>
 </div>
 
 <div class="menu-item">
 <span>Fajitas de res a la mexicana
-<small>(con frijoles, arroz o espagueti y tortillas)</small></span>
+<small>(con frijoles, arroz o espagueti, tortillas e incluye agua de horchata o jamaica)</small></span>
 <span>$90</span>
 </div>
 
 <div class="menu-item">
 <span>Hamburguesa al carbón
-<small>(con queso amarillo, lechuga, tomate y piña)</small>
-<div class="promo">🔥 En la compra de una, llévate una mezcalina gratis</div>
-</span>
+<small>(con queso amarillo, lechuga, tomate y piña e incluye agua de horchata o jamaica)</small></span>
 <span>$90</span>
 </div>
 
