@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
 body{
 margin:0;
 font-family:'Montserrat', sans-serif;
@@ -104,14 +105,6 @@ letter-spacing:4px;
 color:#f1d27a;
 }
 
-.section h2::after{
-content:"✦";
-display:block;
-font-size:18px;
-color:#d4af37;
-margin-top:8px;
-}
-
 .subtitulo{
 margin-top:40px;
 margin-bottom:15px;
@@ -128,12 +121,6 @@ justify-content:space-between;
 padding:18px 0;
 border-bottom:1px solid #2a2a2a;
 font-size:1.05em;
-transition:all 0.3s ease;
-}
-
-.menu-item:hover{
-transform:translateX(6px);
-color:#f1d27a;
 }
 
 .menu-item small{
@@ -143,15 +130,28 @@ color:#aaa;
 margin-top:5px;
 }
 
-.promo{
-color:#ffcc66;
-font-size:0.8em;
-margin-top:6px;
-}
-
 .menu-item span:last-child{
 font-weight:600;
 color:#f1d27a;
+}
+
+/* RESALTADO PUCHERO */
+
+.destacado{
+background:linear-gradient(145deg,#2c2c2c,#1a1a1a);
+border:1px solid #d4af37;
+border-radius:10px;
+padding:18px;
+margin-bottom:15px;
+box-shadow:0 0 15px rgba(212,175,55,0.3);
+}
+
+/* PROMOCION HOTDOG */
+
+.promo{
+color:#ffd966;
+font-size:0.8em;
+margin-top:6px;
 }
 
 .domicilio{
@@ -206,6 +206,7 @@ background:#141414;
 color:#777;
 letter-spacing:2px;
 }
+
 </style>
 </head>
 
@@ -232,16 +233,16 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 
 <div class="subtitulo">COMIDA DEL DÍA</div>
 
+<div class="menu-item destacado">
+<span>Puchero de res (caldo de res)
+<small>(con arroz)</small></span>
+<span>$90 litro</span>
+</div>
+
 <div class="menu-item">
 <span>Pechuga asada estilo cordon bleu
 <small>(acompañada de arroz y tortillas)</small></span>
 <span>$90</span>
-</div>
-
-<div class="menu-item">
-<span>Puchero de res (caldo de res)
-<small>(con arroz)</small></span>
-<span>$90 litro</span>
 </div>
 
 <div class="menu-item">
@@ -288,7 +289,7 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 
 <div class="menu-item">
 <span>Hot dog (gratinado con jamón)
-<div class="promo">🔥 Promoción de hoy: 3 x $100</div>
+<div class="promo">🔥 Promoción de hoy domingo: 3 x $100</div>
 </span>
 <span>$40 c/u</span>
 </div>
