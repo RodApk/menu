@@ -166,6 +166,8 @@ border-radius:12px;
 border:1px solid #2c2c2c;
 }
 
+/* BOTÓN WHATSAPP */
+
 .whatsapp-float{
 position:fixed;
 width:65px;
@@ -208,6 +210,7 @@ letter-spacing:2px;
 <div class="container">
 
 <header>
+
 <img src="logo-las-dos-marias.png" alt="Logo Comedor Las Dos Marías">
 
 <div class="header-text">
@@ -222,13 +225,106 @@ letter-spacing:2px;
 HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 </div>
 
-<!-- resto del menú queda igual -->
+<div class="section">
+
+<h2>MENÚ DEL DÍA</h2>
+
+<div class="subtitulo">COMIDA DEL DÍA</div>
+
+<div class="menu-item">
+<span>Pechuga empanizada
+<small>(acompañada de espagueti y tortillas)</small>
+<div class="promo">🔥 Promoción hoy martes: 2 x $150</div>
+</span>
+<span>$90</span>
+</div>
+
+<div class="menu-item">
+<span>Picadillo de res a la mexicana
+<small>(acompañado de espagueti y tortillas)</small></span>
+<span>$90</span>
+</div>
+
+<div class="subtitulo">ANTOJITOS</div>
+
+<div class="menu-item">
+<span>Hot dog (gratinado con jamón)
+<div class="promo">🔥 Promoción hoy martes: 3 x $100</div>
+</span>
+<span>$40 c/u</span>
+</div>
+
+<div class="menu-item">
+<span>Tlayuda especial (cecina, chorizo y quesillo)</span>
+<span>$90</span>
+</div>
+
+<div class="menu-item">
+<span>Tlayuda doble</span>
+<span>$80</span>
+</div>
+
+<div class="menu-item">
+<span>Picaditas
+<small>(con cecina, chorizo y quesillo)</small></span>
+<span>$20 c/u</span>
+</div>
+
+<div class="menu-item">
+<span>Empanadas al comal
+<small>(frijol con quesillo o molito colorado con pollo)</small></span>
+<span>$20 c/u</span>
+</div>
+
+<div class="subtitulo">BEBIDAS</div>
+
+<div class="menu-item">
+<span>🥤 Agua de tamarindo / jamaica</span>
+<span>$15 medio / $25 litro</span>
+</div>
+
+<div class="menu-item">
+<span>🥃 Mezcalina de nanche
+<small>(mezcal y extracto de nanche)</small></span>
+<span>$50</span>
+</div>
+
+<div class="menu-item">
+<span>🥃 Mezcalina Bull
+<small>(mezcal, cerveza y mistela)</small></span>
+<span>$80</span>
+</div>
+
+<div class="domicilio">
+🚚 CONTAMOS CON SERVICIO A DOMICILIO
+</div>
+
+<div class="whatsapp">
+📲 PEDIDOS: 953 154 3729 | 56 3475 4554
+</div>
+
+</div>
+
+<footer>
+Agradecemos su preferencia
+</footer>
+
+</div>
+
+<a href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO?mode=gi_t"
+class="whatsapp-float" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
 
 <script>
-const opciones = { weekday:'long', year:'numeric', month:'long', day:'numeric'};
+
+const opciones = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+
 const hoy = new Date().toLocaleDateString('es-MX',opciones);
+
 document.getElementById('fecha').textContent =
 hoy.charAt(0).toUpperCase()+hoy.slice(1);
+
 </script>
 
 </body>
