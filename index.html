@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -18,7 +18,7 @@ color:#eaeaea;
 
 .container{
 max-width:900px;
-margin:60px auto;
+margin:50px auto;
 background:#1a1a1a;
 border-radius:18px;
 box-shadow:0 25px 60px rgba(0,0,0,0.7);
@@ -30,35 +30,14 @@ header{
 display:flex;
 align-items:center;
 gap:20px;
-padding:45px;
+padding:40px;
 background:linear-gradient(135deg,#242424,#303030);
 border-bottom:1px solid #3a3a3a;
 }
 
-/* ANIMACIÓN DEL LOGO */
-
 header img{
 width:110px;
-animation:logoGlow 3s infinite ease-in-out;
-}
-
-@keyframes logoGlow{
-
-0%{
-transform:scale(1);
-filter:drop-shadow(0 0 4px rgba(212,175,55,0.3));
-}
-
-50%{
-transform:scale(1.05);
-filter:drop-shadow(0 0 18px rgba(212,175,55,0.8));
-}
-
-100%{
-transform:scale(1);
-filter:drop-shadow(0 0 4px rgba(212,175,55,0.3));
-}
-
+cursor:pointer;
 }
 
 .header-text{
@@ -69,29 +48,21 @@ text-align:center;
 header h1{
 font-family:'Playfair Display', serif;
 margin:0;
-font-size:0.95em;
+font-size:0.9em;
 letter-spacing:6px;
 color:#d4af37;
 }
 
 .nombre{
 font-family:'Playfair Display', serif;
-font-size:2.8em;
-font-weight:700;
-letter-spacing:6px;
-margin-top:10px;
+font-size:2.7em;
+letter-spacing:5px;
 color:#f1d27a;
-}
-
-header p{
-margin-top:12px;
-font-size:0.85em;
-color:#bbb;
 }
 
 .horario{
 text-align:center;
-padding:18px;
+padding:16px;
 background:#181818;
 letter-spacing:2px;
 border-bottom:1px solid #2c2c2c;
@@ -99,20 +70,19 @@ color:#d4af37;
 }
 
 .section{
-padding:45px;
+padding:40px;
 }
 
 .section h2{
 text-align:center;
 font-family:'Playfair Display', serif;
-font-size:1.9em;
-margin-bottom:20px;
+font-size:1.8em;
 letter-spacing:4px;
 color:#f1d27a;
 }
 
 .subtitulo{
-margin-top:40px;
+margin-top:30px;
 margin-bottom:15px;
 letter-spacing:3px;
 font-size:1em;
@@ -124,7 +94,7 @@ padding-bottom:8px;
 .menu-item{
 display:flex;
 justify-content:space-between;
-padding:18px 0;
+padding:16px 0;
 border-bottom:1px solid #2a2a2a;
 font-size:1.05em;
 }
@@ -141,59 +111,83 @@ font-weight:600;
 color:#f1d27a;
 }
 
-.domicilio{
-margin-top:40px;
+.icono{
+margin-left:10px;
+cursor:pointer;
+font-size:20px;
+color:#d4af37;
+animation:brillo 1.5s infinite alternate;
+}
+
+@keyframes brillo{
+from{opacity:0.6;}
+to{opacity:1;}
+}
+
+/* SERVICIO */
+
+.servicio{
+margin-top:35px;
 padding:20px;
-text-align:center;
 background:#181818;
 border-radius:12px;
-border:1px solid #2c2c2c;
-color:#d4af37;
-}
-
-.whatsapp{
-margin-top:25px;
-padding:20px;
 text-align:center;
-background:#151515;
-border-radius:12px;
-border:1px solid #2c2c2c;
+color:#d4af37;
+border:1px solid #333;
+font-size:15px;
 }
 
-/* BOTÓN WHATSAPP */
+/* MODAL */
 
-.whatsapp-float{
+.modal{
+display:none;
 position:fixed;
-width:65px;
-height:65px;
+z-index:200;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+}
+
+.modal img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
+
+/* BOTON WHATSAPP */
+
+.whatsapp-btn{
+position:fixed;
 bottom:25px;
 right:25px;
-background:#25d366;
+width:65px;
+height:65px;
+background:#25D366;
 border-radius:50%;
-text-align:center;
-box-shadow:0 8px 25px rgba(0,0,0,0.5);
-animation:pulse 2s infinite;
-z-index:100;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 6px 15px rgba(0,0,0,0.4);
+z-index:300;
 }
 
-.whatsapp-float img{
+.whatsapp-btn img{
 width:38px;
-margin-top:13px;
 }
 
-@keyframes pulse{
-0%{box-shadow:0 0 0 0 rgba(37,211,102,0.6);}
-70%{box-shadow:0 0 0 18px rgba(37,211,102,0);}
-100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+.whatsapp-btn:hover{
+transform:scale(1.1);
 }
 
 footer{
 text-align:center;
-padding:35px;
-font-size:0.8em;
+padding:30px;
 background:#141414;
 color:#777;
-letter-spacing:2px;
 }
 
 </style>
@@ -205,7 +199,7 @@ letter-spacing:2px;
 
 <header>
 
-<img src="logo-las-dos-marias.png" alt="Logo Comedor Las Dos Marías">
+<img src="logo-las-dos-marias.png" onclick="verImagen('MenuGeneral.jpg')">
 
 <div class="header-text">
 <h1>COMEDOR</h1>
@@ -226,23 +220,32 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 <div class="subtitulo">COMIDA DEL DÍA</div>
 
 <div class="menu-item">
-<span>Pechuga empanizadaa
-<small>(acompañada de espagueti y tortillas)</small>
-</span>
+<span>Caldo de pescado a la leña
+<small>(acompañado de tortillas de mano y arroz)</small></span>
+<span>$100</span>
+</div>
+
+<div class="menu-item">
+<span>Pechuga empanizada
+<small>(acompañada de espagueti y tortillas)</small></span>
 <span>$90</span>
 </div>
 
 <div class="menu-item">
 <span>Picadillo de res a la mexicana
-<small>(acompañado de espagueti y tortillas)</small></span>
+<small>(acompañado de espagueti y tortillas)</small>
+<span class="icono" onclick="verImagen('Picadillo.jpeg')">📷</span>
+</span>
 <span>$90</span>
 </div>
 
 <div class="subtitulo">ANTOJITOS</div>
 
 <div class="menu-item">
-<span>Hot dog (gratinado con jamón)</span>
-<span>$40 c/u</span>
+<span>Hot Dogs
+<span class="icono" onclick="verImagen('HotDogs.jpeg')">📷</span>
+</span>
+<span>$35</span>
 </div>
 
 <div class="menu-item">
@@ -256,42 +259,36 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 </div>
 
 <div class="menu-item">
-<span>Picaditas
-<small>(con cecina, chorizo y quesillo)</small></span>
+<span>Picaditas</span>
 <span>$20 c/u</span>
 </div>
 
 <div class="menu-item">
-<span>Empanadas al comal
-<small>(frijol con quesillo o molito colorado con pollo)</small></span>
+<span>Empanadas al comal</span>
 <span>$20 c/u</span>
 </div>
 
 <div class="subtitulo">BEBIDAS</div>
 
 <div class="menu-item">
-<span>🥤 Agua de tamarindo / jamaica</span>
+<span>Agua de horchata / jamaica</span>
 <span>$15 medio / $25 litro</span>
 </div>
 
 <div class="menu-item">
-<span>🥃 Mezcalina de nanche
-<small>(mezcal y extracto de nanche)</small></span>
+<span>Mezcalina de nanche
+<span class="icono" onclick="verImagen('Mezcalina.jpeg')">📷</span>
+</span>
 <span>$50</span>
 </div>
 
-<div class="menu-item">
-<span>🥃 Mezcalina Bull
-<small>(mezcal, cerveza y mistela)</small></span>
-<span>$80</span>
-</div>
+<div class="servicio">
 
-<div class="domicilio">
-🚚 CONTAMOS CON SERVICIO A DOMICILIO
-</div>
+🚚 CONTAMOS CON SERVICIO A DOMICILIO<br><br>
 
-<div class="whatsapp">
-📲 PEDIDOS: 953 154 3729 | 56 3475 4554
+📲 PEDIDOS:<br>
+953 154 3729 | 56 3475 4554
+
 </div>
 
 </div>
@@ -302,22 +299,36 @@ Agradecemos su preferencia
 
 </div>
 
-<a href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO?mode=gi_t"
-class="whatsapp-float" target="_blank">
+<div id="modalImagen" class="modal" onclick="cerrarImagen()">
+<img id="imagenProducto">
+</div>
+
+<!-- BOTON FLOTANTE GRUPO -->
+
+<a class="whatsapp-btn" 
+href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO?mode=gi_t" 
+target="_blank">
+
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+
 </a>
 
 <script>
 
-const opciones = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+const opciones={weekday:'long',year:'numeric',month:'long',day:'numeric'};
+const hoy=new Date().toLocaleDateString('es-MX',opciones);
+document.getElementById('fecha').textContent=hoy.charAt(0).toUpperCase()+hoy.slice(1);
 
-const hoy = new Date().toLocaleDateString('es-MX',opciones);
+function verImagen(src){
+document.getElementById("modalImagen").style.display="flex";
+document.getElementById("imagenProducto").src=src;
+}
 
-document.getElementById('fecha').textContent =
-hoy.charAt(0).toUpperCase()+hoy.slice(1);
+function cerrarImagen(){
+document.getElementById("modalImagen").style.display="none";
+}
 
 </script>
 
 </body>
 </html>
-
