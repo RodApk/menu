@@ -150,11 +150,22 @@ height:100%;
 background:rgba(0,0,0,0.9);
 justify-content:center;
 align-items:center;
+flex-direction:column;
+}
+
+.modal-texto{
+color:#fff;
+font-size:18px;
+margin-bottom:15px;
+background:#000;
+padding:8px 15px;
+border-radius:8px;
+border:1px solid #d4af37;
 }
 
 .modal img{
 max-width:90%;
-max-height:90%;
+max-height:80%;
 border-radius:10px;
 }
 
@@ -177,10 +188,6 @@ z-index:300;
 
 .whatsapp-btn img{
 width:38px;
-}
-
-.whatsapp-btn:hover{
-transform:scale(1.1);
 }
 
 footer{
@@ -221,7 +228,7 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 
 <div class="menu-item">
 <span>Caldo de pescado a la leña
-<small>(acompañado de tortillas de mano y arroz)</small></span>
+<small>(acompañado de tortillas de mano)</small></span>
 <span>$100</span>
 </div>
 
@@ -300,13 +307,17 @@ Agradecemos su preferencia
 </div>
 
 <div id="modalImagen" class="modal" onclick="cerrarImagen()">
-<img id="imagenProducto">
+
+<div class="modal-texto">
+CLICK PARA CERRAR
 </div>
 
-<!-- BOTON FLOTANTE GRUPO -->
+<img id="imagenProducto">
 
-<a class="whatsapp-btn" 
-href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO?mode=gi_t" 
+</div>
+
+<a class="whatsapp-btn"
+href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO?mode=gi_t"
 target="_blank">
 
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
