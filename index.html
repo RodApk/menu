@@ -31,7 +31,7 @@ header{
 display:flex;
 align-items:center;
 gap:20px;
-padding:40px;
+padding:35px;
 background:linear-gradient(135deg,#3a3a3a,#555);
 }
 
@@ -47,8 +47,8 @@ text-align:center;
 
 .nombre{
 font-family:'Playfair Display', serif;
-font-size:2.8em;
-letter-spacing:5px;
+font-size:2.6em;
+letter-spacing:4px;
 color:#fff4c2;
 }
 
@@ -56,39 +56,39 @@ color:#fff4c2;
 
 .horario{
 text-align:center;
-padding:16px;
+padding:14px;
 background:#181818;
 color:#ffd76a;
 }
 
-/* PROMO */
+/* PROMOCION */
 
 .promocion{
 text-align:center;
 background:#2d2d2d;
 color:#ffd76a;
-padding:14px;
+padding:12px;
 font-weight:600;
 }
 
 /* MENU */
 
 .section{
-padding:40px;
+padding:35px;
 }
 
 .subtitulo{
 margin-top:30px;
-margin-bottom:15px;
+margin-bottom:10px;
 color:#ffd76a;
 border-bottom:1px solid #444;
-padding-bottom:8px;
+padding-bottom:6px;
 }
 
 .menu-item{
 display:flex;
 justify-content:space-between;
-padding:16px 0;
+padding:14px 0;
 border-bottom:1px solid #333;
 align-items:center;
 }
@@ -96,19 +96,21 @@ align-items:center;
 .menu-item small{
 display:block;
 color:#bbb;
+font-size:13px;
 }
 
 /* BOTON VER FOTO */
 
 .verfoto{
-margin-left:10px;
-padding:6px 12px;
+margin-left:8px;
+padding:3px 8px;
 background:#ffd76a;
 color:#000;
-border-radius:20px;
-font-size:12px;
+border-radius:12px;
+font-size:10px;
 cursor:pointer;
 font-weight:600;
+white-space:nowrap;
 animation:pulse 2s infinite;
 }
 
@@ -121,21 +123,33 @@ animation:pulse 2s infinite;
 /* ETIQUETAS */
 
 .etiqueta{
-font-size:11px;
-padding:3px 8px;
-margin-left:8px;
+font-size:10px;
+padding:2px 6px;
+margin-left:6px;
 border-radius:6px;
 font-weight:600;
 }
 
 .hoy{
 background:#e63946;
-color:#fff;
+color:white;
 }
 
 .promo{
 background:#ffd76a;
-color:#000;
+color:black;
+}
+
+/* SERVICIO */
+
+.servicio{
+margin-top:30px;
+padding:16px;
+background:#2a2a2a;
+border-radius:10px;
+text-align:center;
+color:#ffd76a;
+font-size:14px;
 }
 
 /* MODAL */
@@ -155,17 +169,19 @@ z-index:200;
 }
 
 .modal-texto{
-color:#fff;
+color:white;
 margin-bottom:10px;
-background:#000;
-padding:8px 15px;
-border-radius:8px;
+background:black;
+padding:6px 12px;
+border-radius:6px;
 border:1px solid #ffd76a;
+font-size:14px;
 }
 
 .modal img{
 max-width:90%;
 max-height:80%;
+border-radius:10px;
 }
 
 /* REEL */
@@ -177,20 +193,27 @@ left:0;
 top:0;
 width:100%;
 height:100%;
-background:#000;
+background:black;
 justify-content:center;
 align-items:center;
 flex-direction:column;
 z-index:500;
 }
 
+.reel-text{
+color:white;
+margin-bottom:12px;
+text-align:center;
+font-size:16px;
+}
+
 .reel-container{
+position:relative;
+width:100%;
+height:70vh;
 display:flex;
 align-items:center;
 justify-content:center;
-width:100%;
-height:70vh;
-overflow:hidden;
 }
 
 .reel img{
@@ -202,19 +225,22 @@ border-radius:12px;
 .flecha{
 position:absolute;
 top:50%;
-font-size:35px;
-color:#fff;
+transform:translateY(-50%);
+font-size:38px;
+color:white;
 cursor:pointer;
 padding:10px;
-user-select:none;
+background:rgba(0,0,0,0.5);
+border-radius:50%;
 }
 
 .izq{left:20px;}
 .der{right:20px;}
 
 .reel-indicador{
-margin-top:15px;
-color:#fff;
+margin-top:12px;
+color:white;
+font-size:14px;
 }
 
 /* BOTON WHATSAPP */
@@ -223,24 +249,27 @@ color:#fff;
 position:fixed;
 bottom:25px;
 right:25px;
-width:65px;
-height:65px;
+width:60px;
+height:60px;
 background:#25D366;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+z-index:300;
 }
 
 .whatsapp-btn img{
-width:38px;
+width:34px;
 }
 
 footer{
 text-align:center;
-padding:30px;
+padding:25px;
 background:#141414;
 color:#777;
+font-size:13px;
 }
 
 </style>
@@ -274,7 +303,7 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 <div class="subtitulo">COMIDA DEL DÍA</div>
 
 <div class="menu-item">
-<span>Caldo de pescado a la leña 
+<span>Caldo de pescado a la leña
 <span class="etiqueta hoy">HOY</span>
 <small>(acompañado de tortillas de mano)</small>
 <span class="verfoto" onclick="verImagen('IMG-20260314-WA0001.jpg')">VER FOTOS</span>
@@ -381,11 +410,22 @@ CLICK PARA CERRAR
 
 <div id="reelHotdogs" class="reel">
 
-<div class="flecha izq" onclick="prevReel()">⬅</div>
-<div class="flecha der" onclick="nextReel()">➡</div>
+<div class="reel-text">
+🌭 HOT DOGS
+<br>
+<span style="font-size:13px;color:#ccc;">
+Desliza o usa las flechas ➡ para ver más
+</span>
+</div>
 
 <div class="reel-container">
+
+<div class="flecha izq" onclick="prevReel()">❮</div>
+
 <img id="reelImg">
+
+<div class="flecha der" onclick="nextReel()">❯</div>
+
 </div>
 
 <div class="reel-indicador">
@@ -403,6 +443,8 @@ target="_blank">
 </a>
 
 <script>
+
+/* FECHA */
 
 const opciones={weekday:'long',year:'numeric',month:'long',day:'numeric'};
 const hoy=new Date().toLocaleDateString('es-MX',opciones);
@@ -438,41 +480,31 @@ reelIndex=0
 actualizarReel()
 
 reelInterval=setInterval(()=>{
-
 nextReel()
-
 },3000)
 
 }
 
 function actualizarReel(){
-
 document.getElementById("reelImg").src=reelImgs[reelIndex]
 document.getElementById("reelNum").innerText=reelIndex+1
-
 }
 
 function nextReel(){
-
 reelIndex++
 if(reelIndex>=reelImgs.length) reelIndex=0
 actualizarReel()
-
 }
 
 function prevReel(){
-
 reelIndex--
 if(reelIndex<0) reelIndex=reelImgs.length-1
 actualizarReel()
-
 }
 
 document.getElementById("reelHotdogs").onclick=function(){
-
 clearInterval(reelInterval)
 this.style.display="none"
-
 }
 
 </script>
