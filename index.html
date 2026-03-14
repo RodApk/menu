@@ -198,6 +198,8 @@ max-width:90%;
 border-radius:12px;
 }
 
+/* barra progreso */
+
 .progress{
 position:absolute;
 top:10px;
@@ -220,8 +222,6 @@ margin-top:12px;
 color:white;
 font-size:14px;
 }
-
-/* BOTON COMPARTIR */
 
 .share{
 margin-top:10px;
@@ -321,20 +321,70 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 <span>$45</span>
 </div>
 
+<div class="menu-item">
+<span>Tlayuda especial (cecina, chorizo y quesillo)</span>
+<span>$90</span>
 </div>
+
+<div class="menu-item">
+<span>Tlayuda doble</span>
+<span>$80</span>
+</div>
+
+<div class="menu-item">
+<span>Picaditas</span>
+<span>$20 c/u</span>
+</div>
+
+<div class="menu-item">
+<span>Empanadas al comal</span>
+<span>$20 c/u</span>
+</div>
+
+<div class="subtitulo">BEBIDAS</div>
+
+<div class="menu-item">
+<span>Agua de horchata / jamaica</span>
+<span>$15 medio / $25 litro</span>
+</div>
+
+<div class="menu-item">
+<span>Mezcalina de nanche
+<span class="etiqueta promo">PROMO</span>
+<span class="verfoto" onclick="verImagen('Mezcalina.jpeg')">VER FOTOS</span>
+</span>
+<span>$50</span>
+</div>
+
+<div class="menu-item">
+<span>Mezcalina de fresa
+<span class="etiqueta promo">PROMO</span>
+<span class="verfoto" onclick="verImagen('MezcalinaFresa.jpg')">VER FOTOS</span>
+</span>
+<span>$50</span>
+</div>
+
+<div class="servicio">
+
+🚚 CONTAMOS CON SERVICIO A DOMICILIO<br><br>
+📲 PEDIDOS:<br>
+953 154 3729 | 56 3475 4554
 
 </div>
 
-<!-- MODAL NORMAL -->
+</div>
+
+<footer>
+Agradecemos su preferencia
+</footer>
+
+</div>
+
+<!-- MODAL -->
 
 <div id="modalImagen" class="modal" onclick="cerrarImagen()">
-
-<div class="modal-texto">
-CLICK PARA CERRAR
-</div>
-
+<div class="modal-texto">CLICK PARA CERRAR</div>
 <img id="imagenProducto">
-
 </div>
 
 <!-- REEL -->
@@ -342,8 +392,7 @@ CLICK PARA CERRAR
 <div id="reelHotdogs" class="reel">
 
 <div class="reel-text">
-🌭 HOT DOGS
-<br>
+🌭 HOT DOGS<br>
 <span style="font-size:13px;color:#ccc;">Desliza para ver más</span>
 </div>
 
@@ -391,14 +440,20 @@ document.getElementById("modalImagen").style.display="none";
 let reelImgs=["HotDogs.jpeg","HotDogs2.jpg","HotDogs3.jpg"]
 let reelIndex=0
 let reelInterval
+let startX=0
 
 function abrirReelHotdogs(){
+
 document.getElementById("reelHotdogs").style.display="flex"
+
 reelIndex=0
 actualizarReel()
 animarBarra()
 
-reelInterval=setInterval(()=>{nextReel()},3000)
+reelInterval=setInterval(()=>{
+nextReel()
+},3000)
+
 }
 
 function actualizarReel(){
@@ -423,10 +478,36 @@ bar.style.width="100%"
 },50)
 }
 
-document.getElementById("reelImg").addEventListener("click",()=>{
+/* swipe */
+
+const img=document.getElementById("reelImg")
+
+img.addEventListener("touchstart",(e)=>{
+startX=e.touches[0].clientX
+})
+
+img.addEventListener("touchend",(e)=>{
+let endX=e.changedTouches[0].clientX
+
+if(startX-endX>50){
+nextReel()
+}
+
+if(endX-startX>50){
+reelIndex--
+if(reelIndex<0) reelIndex=reelImgs.length-1
+actualizarReel()
+animarBarra()
+}
+
+})
+
+img.addEventListener("click",cerrarReel)
+
+function cerrarReel(){
 clearInterval(reelInterval)
 document.getElementById("reelHotdogs").style.display="none"
-})
+}
 
 function compartirHotdogs(){
 
