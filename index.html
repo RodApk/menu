@@ -12,27 +12,29 @@
 body{
 margin:0;
 font-family:'Montserrat', sans-serif;
-background:#0f0f0f;
+background:#1a1a1a;
 color:#eaeaea;
 }
+
+/* CONTENEDOR */
 
 .container{
 max-width:900px;
 margin:50px auto;
-background:#1a1a1a;
+background:#222;
 border-radius:18px;
-box-shadow:0 25px 60px rgba(0,0,0,0.7);
+box-shadow:0 20px 50px rgba(0,0,0,0.6);
 overflow:hidden;
-border:1px solid #2a2a2a;
 }
+
+/* HEADER */
 
 header{
 display:flex;
 align-items:center;
 gap:20px;
 padding:40px;
-background:linear-gradient(135deg,#242424,#303030);
-border-bottom:1px solid #3a3a3a;
+background:linear-gradient(135deg,#3a3a3a,#555);
 }
 
 header img{
@@ -50,24 +52,37 @@ font-family:'Playfair Display', serif;
 margin:0;
 font-size:0.9em;
 letter-spacing:6px;
-color:#d4af37;
+color:#ffd76a;
 }
 
 .nombre{
 font-family:'Playfair Display', serif;
-font-size:2.7em;
+font-size:2.8em;
 letter-spacing:5px;
-color:#f1d27a;
+color:#fff4c2;
 }
+
+/* HORARIO */
 
 .horario{
 text-align:center;
 padding:16px;
 background:#181818;
 letter-spacing:2px;
-border-bottom:1px solid #2c2c2c;
-color:#d4af37;
+color:#ffd76a;
 }
+
+/* PROMO GENERAL */
+
+.promocion{
+text-align:center;
+background:#2d2d2d;
+color:#ffd76a;
+padding:14px;
+font-weight:600;
+}
+
+/* SECCION */
 
 .section{
 padding:40px;
@@ -78,44 +93,71 @@ text-align:center;
 font-family:'Playfair Display', serif;
 font-size:1.8em;
 letter-spacing:4px;
-color:#f1d27a;
+color:#ffd76a;
 }
+
+/* SUBTITULO */
 
 .subtitulo{
 margin-top:30px;
 margin-bottom:15px;
 letter-spacing:3px;
 font-size:1em;
-color:#d4af37;
-border-bottom:1px solid #333;
+color:#ffd76a;
+border-bottom:1px solid #444;
 padding-bottom:8px;
 }
+
+/* ITEM */
 
 .menu-item{
 display:flex;
 justify-content:space-between;
 padding:16px 0;
-border-bottom:1px solid #2a2a2a;
+border-bottom:1px solid #333;
 font-size:1.05em;
+align-items:center;
 }
 
 .menu-item small{
 display:block;
 font-size:0.85em;
-color:#aaa;
+color:#bbb;
 margin-top:5px;
 }
 
 .menu-item span:last-child{
 font-weight:600;
-color:#f1d27a;
+color:#ffd76a;
 }
+
+/* ETIQUETAS */
+
+.etiqueta{
+font-size:11px;
+padding:3px 8px;
+margin-left:8px;
+border-radius:6px;
+font-weight:600;
+}
+
+.hoy{
+background:#e63946;
+color:#fff;
+}
+
+.promo{
+background:#ffd76a;
+color:#000;
+}
+
+/* ICONO FOTO */
 
 .icono{
 margin-left:10px;
 cursor:pointer;
 font-size:20px;
-color:#d4af37;
+color:#ffd76a;
 animation:brillo 1.5s infinite alternate;
 }
 
@@ -129,12 +171,10 @@ to{opacity:1;}
 .servicio{
 margin-top:35px;
 padding:20px;
-background:#181818;
+background:#2a2a2a;
 border-radius:12px;
 text-align:center;
-color:#d4af37;
-border:1px solid #333;
-font-size:15px;
+color:#ffd76a;
 }
 
 /* MODAL */
@@ -160,7 +200,7 @@ margin-bottom:15px;
 background:#000;
 padding:8px 15px;
 border-radius:8px;
-border:1px solid #d4af37;
+border:1px solid #ffd76a;
 }
 
 .modal img{
@@ -220,6 +260,10 @@ color:#777;
 HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 </div>
 
+<div class="promocion">
+🎉 PROMOCIÓN DEL DÍA: En cualquier compra llévate <b>una mezcalina gratis</b> (solo en consumo dentro del local)
+</div>
+
 <div class="section">
 
 <h2>MENÚ DEL DÍA</h2>
@@ -227,7 +271,8 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 <div class="subtitulo">COMIDA DEL DÍA</div>
 
 <div class="menu-item">
-<span>Caldo de pescado a la leña
+<span>Caldo de pescado a la leña 
+<span class="etiqueta hoy">HOY</span>
 <small>(acompañado de tortillas de mano)</small>
 <span class="icono" onclick="verImagen('IMG-20260314-WA0001.jpg')">📷</span>
 </span>
@@ -236,7 +281,8 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 
 <div class="menu-item">
 <span>Pechuga empanizada
-<small>(acompañada de espagueti y tortillas)</small></span>
+<small>(acompañada de espagueti y tortillas)</small>
+</span>
 <span>$90</span>
 </div>
 
@@ -286,7 +332,16 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 
 <div class="menu-item">
 <span>Mezcalina de nanche
+<span class="etiqueta promo">PROMO</span>
 <span class="icono" onclick="verImagen('Mezcalina.jpeg')">📷</span>
+</span>
+<span>$50</span>
+</div>
+
+<div class="menu-item">
+<span>Mezcalina de fresa
+<span class="etiqueta promo">PROMO</span>
+<span class="icono" onclick="verImagen('MezcalinaFresa.jpg')">📷</span>
 </span>
 <span>$50</span>
 </div>
@@ -294,7 +349,6 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 <div class="servicio">
 
 🚚 CONTAMOS CON SERVICIO A DOMICILIO<br><br>
-
 📲 PEDIDOS:<br>
 953 154 3729 | 56 3475 4554
 
