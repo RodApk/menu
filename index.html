@@ -23,7 +23,6 @@ max-width:900px;
 margin:50px auto;
 background:#222;
 border-radius:18px;
-box-shadow:0 20px 50px rgba(0,0,0,0.6);
 overflow:hidden;
 }
 
@@ -48,17 +47,12 @@ text-align:center;
 }
 
 header h1{
-font-family:'Playfair Display', serif;
-margin:0;
-font-size:0.9em;
 letter-spacing:6px;
 color:#ffd76a;
 }
 
 .nombre{
-font-family:'Playfair Display', serif;
 font-size:2.8em;
-letter-spacing:5px;
 color:#fff4c2;
 }
 
@@ -68,112 +62,42 @@ color:#fff4c2;
 text-align:center;
 padding:16px;
 background:#181818;
-letter-spacing:2px;
 color:#ffd76a;
 }
 
-/* PROMO GENERAL */
+/* PROMO */
 
 .promocion{
 text-align:center;
 background:#2d2d2d;
 color:#ffd76a;
 padding:14px;
-font-weight:600;
 }
 
-/* SECCION */
+/* MENU */
 
 .section{
 padding:40px;
 }
 
-.section h2{
-text-align:center;
-font-family:'Playfair Display', serif;
-font-size:1.8em;
-letter-spacing:4px;
-color:#ffd76a;
-}
-
-/* SUBTITULO */
-
 .subtitulo{
 margin-top:30px;
-margin-bottom:15px;
-letter-spacing:3px;
-font-size:1em;
 color:#ffd76a;
 border-bottom:1px solid #444;
 padding-bottom:8px;
 }
-
-/* ITEM */
 
 .menu-item{
 display:flex;
 justify-content:space-between;
 padding:16px 0;
 border-bottom:1px solid #333;
-font-size:1.05em;
-align-items:center;
 }
-
-.menu-item small{
-display:block;
-font-size:0.85em;
-color:#bbb;
-margin-top:5px;
-}
-
-.menu-item span:last-child{
-font-weight:600;
-color:#ffd76a;
-}
-
-/* ETIQUETAS */
-
-.etiqueta{
-font-size:11px;
-padding:3px 8px;
-margin-left:8px;
-border-radius:6px;
-font-weight:600;
-}
-
-.hoy{
-background:#e63946;
-color:#fff;
-}
-
-.promo{
-background:#ffd76a;
-color:#000;
-}
-
-/* ICONO FOTO */
 
 .icono{
 margin-left:10px;
 cursor:pointer;
 font-size:20px;
-color:#ffd76a;
-animation:brillo 1.5s infinite alternate;
-}
-
-@keyframes brillo{
-from{opacity:0.6;}
-to{opacity:1;}
-}
-
-/* SERVICIO */
-
-.servicio{
-margin-top:35px;
-padding:20px;
-background:#2a2a2a;
-border-radius:12px;
-text-align:center;
 color:#ffd76a;
 }
 
@@ -182,12 +106,11 @@ color:#ffd76a;
 .modal{
 display:none;
 position:fixed;
-z-index:200;
 left:0;
 top:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.9);
+background:rgba(0,0,0,0.95);
 justify-content:center;
 align-items:center;
 flex-direction:column;
@@ -195,18 +118,38 @@ flex-direction:column;
 
 .modal-texto{
 color:#fff;
-font-size:18px;
-margin-bottom:15px;
-background:#000;
-padding:8px 15px;
-border-radius:8px;
-border:1px solid #ffd76a;
+margin-bottom:10px;
 }
 
 .modal img{
 max-width:90%;
 max-height:80%;
+}
+
+/* REEL */
+
+.reel{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:#000;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.reel img{
+max-width:90%;
+max-height:80%;
 border-radius:10px;
+}
+
+.reel-text{
+color:#fff;
+margin-bottom:10px;
 }
 
 /* BOTON WHATSAPP */
@@ -222,19 +165,10 @@ border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-box-shadow:0 6px 15px rgba(0,0,0,0.4);
-z-index:300;
 }
 
 .whatsapp-btn img{
 width:38px;
-}
-
-footer{
-text-align:center;
-padding:30px;
-background:#141414;
-color:#777;
 }
 
 </style>
@@ -261,18 +195,15 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 </div>
 
 <div class="promocion">
-🎉 PROMOCIÓN DEL DÍA: En cualquier compra llévate <b>una mezcalina gratis</b> (solo en consumo dentro del local)
+🎉 PROMOCIÓN DEL DÍA: En cualquier compra una mezcalina gratis (solo en el local)
 </div>
 
 <div class="section">
 
-<h2>MENÚ DEL DÍA</h2>
-
 <div class="subtitulo">COMIDA DEL DÍA</div>
 
 <div class="menu-item">
-<span>Caldo de pescado a la leña 
-<span class="etiqueta hoy">HOY</span>
+<span>Caldo de pescado a la leña
 <small>(acompañado de tortillas de mano)</small>
 <span class="icono" onclick="verImagen('IMG-20260314-WA0001.jpg')">📷</span>
 </span>
@@ -281,8 +212,7 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 
 <div class="menu-item">
 <span>Pechuga empanizada
-<small>(acompañada de espagueti y tortillas)</small>
-</span>
+<small>(acompañada de espagueti y tortillas)</small></span>
 <span>$90</span>
 </div>
 
@@ -298,69 +228,16 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 
 <div class="menu-item">
 <span>Hot Dogs
-<span class="icono" onclick="verImagen('HotDogs.jpeg')">📷</span>
+<span class="icono" onclick="abrirReelHotdogs()">📷</span>
 </span>
 <span>$45</span>
 </div>
 
-<div class="menu-item">
-<span>Tlayuda especial (cecina, chorizo y quesillo)</span>
-<span>$90</span>
-</div>
-
-<div class="menu-item">
-<span>Tlayuda doble</span>
-<span>$80</span>
-</div>
-
-<div class="menu-item">
-<span>Picaditas</span>
-<span>$20 c/u</span>
-</div>
-
-<div class="menu-item">
-<span>Empanadas al comal</span>
-<span>$20 c/u</span>
-</div>
-
-<div class="subtitulo">BEBIDAS</div>
-
-<div class="menu-item">
-<span>Agua de horchata / jamaica</span>
-<span>$15 medio / $25 litro</span>
-</div>
-
-<div class="menu-item">
-<span>Mezcalina de nanche
-<span class="etiqueta promo">PROMO</span>
-<span class="icono" onclick="verImagen('Mezcalina.jpeg')">📷</span>
-</span>
-<span>$50</span>
-</div>
-
-<div class="menu-item">
-<span>Mezcalina de fresa
-<span class="etiqueta promo">PROMO</span>
-<span class="icono" onclick="verImagen('MezcalinaFresa.jpg')">📷</span>
-</span>
-<span>$50</span>
-</div>
-
-<div class="servicio">
-
-🚚 CONTAMOS CON SERVICIO A DOMICILIO<br><br>
-📲 PEDIDOS:<br>
-953 154 3729 | 56 3475 4554
-
 </div>
 
 </div>
 
-<footer>
-Agradecemos su preferencia
-</footer>
-
-</div>
+<!-- MODAL NORMAL -->
 
 <div id="modalImagen" class="modal" onclick="cerrarImagen()">
 
@@ -369,6 +246,18 @@ CLICK PARA CERRAR
 </div>
 
 <img id="imagenProducto">
+
+</div>
+
+<!-- REEL HOTDOGS -->
+
+<div id="reelHotdogs" class="reel" onclick="cerrarReel()">
+
+<div class="reel-text">
+HOT DOGS 🍔 - CLICK PARA CERRAR
+</div>
+
+<img id="reelImg">
 
 </div>
 
@@ -382,9 +271,13 @@ target="_blank">
 
 <script>
 
+/* FECHA */
+
 const opciones={weekday:'long',year:'numeric',month:'long',day:'numeric'};
 const hoy=new Date().toLocaleDateString('es-MX',opciones);
 document.getElementById('fecha').textContent=hoy.charAt(0).toUpperCase()+hoy.slice(1);
+
+/* MODAL */
 
 function verImagen(src){
 document.getElementById("modalImagen").style.display="flex";
@@ -393,6 +286,45 @@ document.getElementById("imagenProducto").src=src;
 
 function cerrarImagen(){
 document.getElementById("modalImagen").style.display="none";
+}
+
+/* REEL HOTDOGS */
+
+let reelImgs=[
+"HotDogs.jpeg",
+"HotDogs2.jpg",
+"HotDogs3.jpg"
+]
+
+let reelIndex=0
+let reelInterval
+
+function abrirReelHotdogs(){
+
+document.getElementById("reelHotdogs").style.display="flex"
+
+document.getElementById("reelImg").src=reelImgs[0]
+
+reelIndex=0
+
+reelInterval=setInterval(()=>{
+
+reelIndex++
+
+if(reelIndex>=reelImgs.length) reelIndex=0
+
+document.getElementById("reelImg").src=reelImgs[reelIndex]
+
+},3000)
+
+}
+
+function cerrarReel(){
+
+clearInterval(reelInterval)
+
+document.getElementById("reelHotdogs").style.display="none"
+
 }
 
 </script>
