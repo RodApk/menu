@@ -61,7 +61,7 @@ background:#181818;
 color:#ffd76a;
 }
 
-/* PROMOCION */
+/* PROMO */
 
 .promocion{
 text-align:center;
@@ -152,7 +152,7 @@ color:#ffd76a;
 font-size:14px;
 }
 
-/* MODAL */
+/* MODAL NORMAL */
 
 .modal{
 display:none;
@@ -202,9 +202,8 @@ z-index:500;
 
 .reel-text{
 color:white;
-margin-bottom:12px;
+margin-bottom:10px;
 text-align:center;
-font-size:16px;
 }
 
 .reel-container{
@@ -222,20 +221,26 @@ max-width:90%;
 border-radius:12px;
 }
 
-.flecha{
+/* BARRA PROGRESO */
+
+.progress{
 position:absolute;
-top:50%;
-transform:translateY(-50%);
-font-size:38px;
-color:white;
-cursor:pointer;
-padding:10px;
-background:rgba(0,0,0,0.5);
-border-radius:50%;
+top:10px;
+left:10px;
+right:10px;
+height:4px;
+background:#444;
+border-radius:4px;
+overflow:hidden;
 }
 
-.izq{left:20px;}
-.der{right:20px;}
+.progress-bar{
+height:100%;
+width:0%;
+background:#ffd76a;
+}
+
+/* INDICADOR */
 
 .reel-indicador{
 margin-top:12px;
@@ -243,7 +248,7 @@ color:white;
 font-size:14px;
 }
 
-/* BOTON WHATSAPP */
+/* WHATSAPP */
 
 .whatsapp-btn{
 position:fixed;
@@ -303,7 +308,7 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 <div class="subtitulo">COMIDA DEL DÍA</div>
 
 <div class="menu-item">
-<span>Caldo de pescado a la leña
+<span>Caldo de pescado a la leña 
 <span class="etiqueta hoy">HOY</span>
 <small>(acompañado de tortillas de mano)</small>
 <span class="verfoto" onclick="verImagen('IMG-20260314-WA0001.jpg')">VER FOTOS</span>
@@ -413,18 +418,16 @@ CLICK PARA CERRAR
 <div class="reel-text">
 🌭 HOT DOGS
 <br>
-<span style="font-size:13px;color:#ccc;">
-Desliza o usa las flechas ➡ para ver más
-</span>
+<span style="font-size:13px;color:#ccc;">Desliza para ver más</span>
 </div>
 
 <div class="reel-container">
 
-<div class="flecha izq" onclick="prevReel()">❮</div>
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
 
 <img id="reelImg">
-
-<div class="flecha der" onclick="nextReel()">❯</div>
 
 </div>
 
@@ -444,8 +447,6 @@ target="_blank">
 
 <script>
 
-/* FECHA */
-
 const opciones={weekday:'long',year:'numeric',month:'long',day:'numeric'};
 const hoy=new Date().toLocaleDateString('es-MX',opciones);
 document.getElementById('fecha').textContent=hoy.charAt(0).toUpperCase()+hoy.slice(1);
@@ -463,14 +464,11 @@ document.getElementById("modalImagen").style.display="none";
 
 /* REEL */
 
-let reelImgs=[
-"HotDogs.jpeg",
-"HotDogs2.jpg",
-"HotDogs3.jpg"
-]
+let reelImgs=["HotDogs.jpeg","HotDogs2.jpg","HotDogs3.jpg"]
 
 let reelIndex=0
 let reelInterval
+let startX=0
 
 function abrirReelHotdogs(){
 
@@ -478,6 +476,7 @@ document.getElementById("reelHotdogs").style.display="flex"
 
 reelIndex=0
 actualizarReel()
+animarBarra()
 
 reelInterval=setInterval(()=>{
 nextReel()
@@ -486,25 +485,64 @@ nextReel()
 }
 
 function actualizarReel(){
+
 document.getElementById("reelImg").src=reelImgs[reelIndex]
 document.getElementById("reelNum").innerText=reelIndex+1
+
 }
 
 function nextReel(){
+
 reelIndex++
 if(reelIndex>=reelImgs.length) reelIndex=0
 actualizarReel()
+animarBarra()
+
 }
 
-function prevReel(){
+function animarBarra(){
+
+const bar=document.getElementById("progressBar")
+bar.style.transition="none"
+bar.style.width="0%"
+
+setTimeout(()=>{
+bar.style.transition="width 3s linear"
+bar.style.width="100%"
+},50)
+
+}
+
+/* swipe */
+
+const img=document.getElementById("reelImg")
+
+img.addEventListener("touchstart",(e)=>{
+startX=e.touches[0].clientX
+})
+
+img.addEventListener("touchend",(e)=>{
+
+let endX=e.changedTouches[0].clientX
+
+if(startX-endX>50) nextReel()
+
+if(endX-startX>50){
 reelIndex--
 if(reelIndex<0) reelIndex=reelImgs.length-1
 actualizarReel()
+animarBarra()
 }
 
-document.getElementById("reelHotdogs").onclick=function(){
+})
+
+img.addEventListener("click",cerrarReel)
+
+function cerrarReel(){
+
 clearInterval(reelInterval)
-this.style.display="none"
+document.getElementById("reelHotdogs").style.display="none"
+
 }
 
 </script>
