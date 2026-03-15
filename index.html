@@ -106,24 +106,6 @@ color:#bbb;
 font-size:13px;
 }
 
-.etiqueta{
-font-size:10px;
-padding:2px 6px;
-margin-left:6px;
-border-radius:6px;
-font-weight:600;
-}
-
-.hoy{
-background:#e63946;
-color:white;
-}
-
-.promo{
-background:#ffd76a;
-color:black;
-}
-
 .servicio{
 margin-top:30px;
 padding:16px;
@@ -163,11 +145,6 @@ z-index:200;
 .modal-texto{
 color:white;
 margin-bottom:10px;
-background:black;
-padding:6px 12px;
-border-radius:6px;
-border:1px solid #ffd76a;
-font-size:14px;
 }
 
 .modal img{
@@ -190,12 +167,6 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 z-index:500;
-}
-
-.reel-text{
-color:white;
-margin-bottom:10px;
-text-align:center;
 }
 
 .reel-container{
@@ -233,16 +204,13 @@ background:#ffd76a;
 .reel-indicador{
 margin-top:12px;
 color:white;
-font-size:14px;
 }
 
 .share{
-margin-top:12px;
+margin-top:10px;
 background:#25D366;
-padding:10px 14px;
+padding:8px 14px;
 border-radius:8px;
-color:white;
-font-size:14px;
 cursor:pointer;
 }
 
@@ -257,20 +225,10 @@ border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-box-shadow:0 5px 15px rgba(0,0,0,0.4);
-z-index:300;
 }
 
 .whatsapp-btn img{
 width:34px;
-}
-
-footer{
-text-align:center;
-padding:25px;
-background:#141414;
-color:#777;
-font-size:13px;
 }
 
 </style>
@@ -282,7 +240,6 @@ font-size:13px;
 
 <header>
 <img src="logo-las-dos-marias.png" onclick="verImagen('MenuGeneral.jpg')">
-
 <div class="header-text">
 <div class="nombre">LAS DOS MARÍAS</div>
 <p id="fecha"></p>
@@ -294,7 +251,7 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 </div>
 
 <div class="promocion">
-🎉 PROMOCIÓN DEL DÍA: En cualquier compra llévate una mezcalina gratis (solo en el local)
+🎉 PROMOCIÓN DEL DÍA: En cualquier compra llévate una mezcalina gratis
 </div>
 
 <div class="section">
@@ -303,9 +260,9 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="IMG-20260314-WA0001.jpg" onclick="verImagen('IMG-20260314-WA0001.jpg')">
+<img class="product-img" src="IMG-20260314-WA0001.jpg" onclick="abrirReel('mojarra')">
 <div class="menu-text">
-Caldo de pescado a la leña <span class="etiqueta hoy">HOY</span>
+Caldo de mojarra
 <small>(acompañado de tortillas de mano)</small>
 </div>
 </div>
@@ -339,7 +296,10 @@ Picadillo de res a la mexicana
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="HotDogs.jpeg" onclick="abrirReel('hotdogs')">
-<div class="menu-text">Hot Dogs</div>
+<div class="menu-text">
+Hot Dogs gratinados
+<small>(salchicha, jamón, quesillo)</small>
+</div>
 </div>
 <span>$45</span>
 </div>
@@ -347,7 +307,8 @@ Picadillo de res a la mexicana
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="Sincronizada.jpg" onclick="abrirReel('sincronizadas')">
-<div class="menu-text">Sincronizadas
+<div class="menu-text">
+Sincronizadas
 <small>(jamón, salchicha, queso manchego, quesillo)</small>
 </div>
 </div>
@@ -398,7 +359,7 @@ Picadillo de res a la mexicana
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="Mezcalina.jpeg" onclick="verImagen('Mezcalina.jpeg')">
-<div class="menu-text">Mezcalina de nanche <span class="etiqueta promo">PROMO</span></div>
+<div class="menu-text">Mezcalina de nanche</div>
 </div>
 <span>$50</span>
 </div>
@@ -406,7 +367,7 @@ Picadillo de res a la mexicana
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="MezcalinaFresa.jpg" onclick="verImagen('MezcalinaFresa.jpg')">
-<div class="menu-text">Mezcalina de fresa <span class="etiqueta promo">PROMO</span></div>
+<div class="menu-text">Mezcalina de fresa</div>
 </div>
 <span>$50</span>
 </div>
@@ -429,23 +390,14 @@ Agradecemos su preferencia
 
 </div>
 
-<!-- MODAL -->
-
 <div id="modalImagen" class="modal" onclick="cerrarImagen()">
 <div class="modal-texto">CLICK PARA CERRAR</div>
 <img id="imagenProducto">
 </div>
 
-<!-- REEL UNIVERSAL -->
-
 <div id="reel" class="reel">
 
 <div class="modal-texto">CLICK PARA CERRAR</div>
-
-<div class="reel-text">
-<span id="reelTitulo"></span><br>
-<span style="font-size:13px;color:#ccc;">Desliza para ver más</span>
-</div>
 
 <div class="reel-container">
 
@@ -468,11 +420,9 @@ Agradecemos su preferencia
 </div>
 
 <a class="whatsapp-btn"
-href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO?mode=gi_t"
+href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO"
 target="_blank">
-
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-
 </a>
 
 <script>
@@ -480,7 +430,8 @@ target="_blank">
 const reels={
 hotdogs:["HotDogs.jpeg","HotDogs2.jpg","HotDogs3.jpg"],
 sincronizadas:["Sincronizada.jpg","Sincronizada2.jpg","Sincronizada3.jpg"],
-picaditas:["Picaditas.jpg","Picaditas3.jpg","PicaditasHuevo.jpg"]
+picaditas:["Picaditas.jpg","Picaditas3.jpg","PicaditasHuevo.jpg"],
+mojarra:["IMG-20260314-WA0001.jpg","CaldoPescado2.jpg"]
 }
 
 let tipoActual=""
@@ -493,8 +444,6 @@ function abrirReel(tipo){
 
 tipoActual=tipo
 reelImgs=reels[tipo]
-
-document.getElementById("reelTitulo").innerText=tipo.toUpperCase()
 
 document.getElementById("reel").style.display="flex"
 
@@ -516,7 +465,6 @@ document.getElementById("reelNum").innerText=reelIndex+1
 function siguiente(){
 
 reelIndex++
-
 if(reelIndex>=reelImgs.length) reelIndex=0
 
 actualizar()
@@ -549,13 +497,10 @@ let endX=e.changedTouches[0].clientX
 if(startX-endX>50) siguiente()
 
 if(endX-startX>50){
-
 reelIndex--
 if(reelIndex<0) reelIndex=reelImgs.length-1
-
 actualizar()
 animar()
-
 }
 
 })
@@ -569,33 +514,30 @@ function compartirReel(){
 
 const url=window.location.origin+window.location.pathname+"#"+tipoActual
 
-const texto="Mira este platillo 👇\n"+url
+window.open("https://wa.me/?text="+encodeURIComponent(url))
 
-window.open("https://wa.me/?text="+encodeURIComponent(texto))
+}
+
+window.onload=function(){
+
+const hash=window.location.hash.replace("#","")
+
+if(reels[hash]) abrirReel(hash)
 
 }
 
 function verImagen(src){
-
 document.getElementById("modalImagen").style.display="flex"
 document.getElementById("imagenProducto").src=src
-
 }
 
 function cerrarImagen(){
-
 document.getElementById("modalImagen").style.display="none"
-
 }
 
 function compartirMenu(){
-
-const url=window.location.origin+window.location.pathname
-
-const texto="🍽️ Mira nuestro menú 👇\n"+url
-
-window.open("https://wa.me/?text="+encodeURIComponent(texto))
-
+const url=window.location.href
+window.open("https://wa.me/?text="+encodeURIComponent(url))
 }
 
 </script>
