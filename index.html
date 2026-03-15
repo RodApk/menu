@@ -106,6 +106,19 @@ color:#bbb;
 font-size:13px;
 }
 
+.etiqueta{
+font-size:10px;
+padding:2px 6px;
+margin-left:6px;
+border-radius:6px;
+font-weight:600;
+}
+
+.promo{
+background:#ffd76a;
+color:black;
+}
+
 .servicio{
 margin-top:30px;
 padding:16px;
@@ -125,6 +138,8 @@ text-align:center;
 font-weight:600;
 cursor:pointer;
 }
+
+/* MODAL */
 
 .modal{
 display:none;
@@ -150,6 +165,8 @@ max-width:90%;
 max-height:80%;
 border-radius:10px;
 }
+
+/* REEL */
 
 .reel{
 display:none;
@@ -264,7 +281,7 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 </div>
 
 <div class="promocion">
-🎉 PROMOCIÓN DEL DÍA: En cualquier compra llévate una mezcalina gratis
+🎉 PROMOCIÓN DEL DÍA: En cualquier compra llévate una mezcalina gratis (solo en compra en el local)
 </div>
 
 <div class="section">
@@ -331,7 +348,10 @@ Sincronizadas
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="TlayudaEspecial.jpg" onclick="verImagen('TlayudaEspecial.jpg')">
-<div class="menu-text">Tlayuda especial</div>
+<div class="menu-text">
+Tlayuda especial
+<small>(cecina, chorizo y quesillo)</small>
+</div>
 </div>
 <span>$90</span>
 </div>
@@ -347,13 +367,17 @@ Sincronizadas
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="Picaditas.jpg" onclick="abrirReel('picaditas')">
-<div class="menu-text">Picaditas</div>
+<div class="menu-text">
+Picaditas
+<small>(cecina, quesillo y chorizo)</small>
+</div>
 </div>
 <span>$20 c/u</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
+<img class="product-img" src="EmpanadaComal.jpg" onclick="verImagen('EmpanadaComal.jpg')">
 <div class="menu-text">Empanadas al comal</div>
 </div>
 <span>$20 c/u</span>
@@ -371,16 +395,16 @@ Sincronizadas
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="Mezcalina.jpeg" onclick="verImagen('Mezcalina.jpeg')">
-<div class="menu-text">Mezcalina de nanche</div>
+<img class="product-img" src="Mezcalina.jpeg">
+<div class="menu-text">Mezcalina de nanche <span class="etiqueta promo">PROMO</span></div>
 </div>
 <span>$50</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="MezcalinaFresa.jpg" onclick="verImagen('MezcalinaFresa.jpg')">
-<div class="menu-text">Mezcalina de fresa</div>
+<img class="product-img" src="MezcalinaFresa.jpg">
+<div class="menu-text">Mezcalina de fresa <span class="etiqueta promo">PROMO</span></div>
 </div>
 <span>$50</span>
 </div>
@@ -402,165 +426,3 @@ Agradecemos su preferencia
 </footer>
 
 </div>
-
-<div id="modalImagen" class="modal" onclick="cerrarImagen()">
-<div class="modal-texto">CLICK PARA CERRAR</div>
-<img id="imagenProducto">
-</div>
-
-<div id="reel" class="reel">
-
-<div class="modal-texto">CLICK PARA CERRAR</div>
-
-<div class="reel-text">
-<span id="reelTitulo"></span><br>
-<span style="font-size:13px;color:#ccc;">Desliza para ver más</span>
-</div>
-
-<div class="reel-container">
-
-<div class="progress">
-<div class="progress-bar" id="progressBar"></div>
-</div>
-
-<img id="reelImg">
-
-</div>
-
-<div class="reel-indicador">
-<span id="reelNum"></span>
-</div>
-
-<div class="share" onclick="compartirReel()">
-📲 COMPARTIR POR WHATSAPP
-</div>
-
-</div>
-
-<a class="whatsapp-btn"
-href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO"
-target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-</a>
-
-<script>
-
-const reels={
-hotdogs:["HotDogs.jpeg","HotDogs2.jpg","HotDogs3.jpg"],
-sincronizadas:["Sincronizada.jpg","Sincronizada2.jpg","Sincronizada3.jpg"],
-picaditas:["Picaditas.jpg","Picaditas3.jpg","PicaditasHuevo.jpg"],
-mojarra:["IMG-20260314-WA0001.jpg","CaldoPescado2.jpg"]
-}
-
-let tipoActual=""
-let reelImgs=[]
-let reelIndex=0
-let intervalo
-let startX=0
-
-function abrirReel(tipo){
-
-tipoActual=tipo
-reelImgs=reels[tipo]
-
-document.getElementById("reelTitulo").innerText=tipo.toUpperCase()
-
-document.getElementById("reel").style.display="flex"
-
-reelIndex=0
-actualizar()
-animar()
-
-intervalo=setInterval(siguiente,3000)
-
-}
-
-function actualizar(){
-
-document.getElementById("reelImg").src=reelImgs[reelIndex]
-document.getElementById("reelNum").innerText=(reelIndex+1)+" / "+reelImgs.length
-
-}
-
-function siguiente(){
-
-reelIndex++
-if(reelIndex>=reelImgs.length) reelIndex=0
-
-actualizar()
-animar()
-
-}
-
-function animar(){
-
-const bar=document.getElementById("progressBar")
-
-bar.style.transition="none"
-bar.style.width="0%"
-
-setTimeout(()=>{
-bar.style.transition="width 3s linear"
-bar.style.width="100%"
-},50)
-
-}
-
-document.getElementById("reelImg").addEventListener("touchstart",(e)=>{
-startX=e.touches[0].clientX
-})
-
-document.getElementById("reelImg").addEventListener("touchend",(e)=>{
-
-let endX=e.changedTouches[0].clientX
-
-if(startX-endX>50) siguiente()
-
-if(endX-startX>50){
-reelIndex--
-if(reelIndex<0) reelIndex=reelImgs.length-1
-actualizar()
-animar()
-}
-
-})
-
-document.getElementById("reelImg").addEventListener("click",()=>{
-clearInterval(intervalo)
-document.getElementById("reel").style.display="none"
-})
-
-function compartirReel(){
-
-const url=window.location.origin+window.location.pathname+"#"+tipoActual
-
-window.open("https://wa.me/?text="+encodeURIComponent(url))
-
-}
-
-function verImagen(src){
-document.getElementById("modalImagen").style.display="flex"
-document.getElementById("imagenProducto").src=src
-}
-
-function cerrarImagen(){
-document.getElementById("modalImagen").style.display="none"
-}
-
-function compartirMenu(){
-const url=window.location.href
-window.open("https://wa.me/?text="+encodeURIComponent(url))
-}
-
-window.onload=function(){
-
-const hash=window.location.hash.replace("#","")
-
-if(reels[hash]) abrirReel(hash)
-
-}
-
-</script>
-
-</body>
-</html>
