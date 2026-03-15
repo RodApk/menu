@@ -80,27 +80,30 @@ padding-bottom:6px;
 .menu-item{
 display:flex;
 justify-content:space-between;
+align-items:center;
 padding:14px 0;
 border-bottom:1px solid #333;
-align-items:center;
 }
 
-.menu-item small{
+.item-left{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.product-img{
+width:45px;
+height:45px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid #ffd76a;
+cursor:pointer;
+}
+
+.menu-text small{
 display:block;
 color:#bbb;
 font-size:13px;
-}
-
-.verfoto{
-margin-left:8px;
-padding:3px 8px;
-background:#ffd76a;
-color:#000;
-border-radius:12px;
-font-size:10px;
-cursor:pointer;
-font-weight:600;
-white-space:nowrap;
 }
 
 .etiqueta{
@@ -129,6 +132,16 @@ border-radius:10px;
 text-align:center;
 color:#ffd76a;
 font-size:14px;
+}
+
+.share-menu{
+margin-top:20px;
+background:#25D366;
+padding:12px;
+border-radius:10px;
+text-align:center;
+font-weight:600;
+cursor:pointer;
 }
 
 /* MODAL */
@@ -161,76 +174,6 @@ font-size:14px;
 max-width:90%;
 max-height:80%;
 border-radius:10px;
-}
-
-/* REEL */
-
-.reel{
-display:none;
-position:fixed;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:black;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:500;
-}
-
-.reel-text{
-color:white;
-margin-bottom:10px;
-text-align:center;
-}
-
-.reel-container{
-position:relative;
-width:100%;
-height:70vh;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.reel img{
-max-height:100%;
-max-width:90%;
-border-radius:12px;
-}
-
-.progress{
-position:absolute;
-top:10px;
-left:10px;
-right:10px;
-height:4px;
-background:#444;
-border-radius:4px;
-overflow:hidden;
-}
-
-.progress-bar{
-height:100%;
-width:0%;
-background:#ffd76a;
-}
-
-.reel-indicador{
-margin-top:12px;
-color:white;
-font-size:14px;
-}
-
-.share{
-margin-top:10px;
-background:#25D366;
-padding:8px 14px;
-border-radius:8px;
-color:white;
-font-size:14px;
-cursor:pointer;
 }
 
 /* WHATSAPP */
@@ -291,79 +234,99 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 <div class="subtitulo">COMIDA DEL DÍA</div>
 
 <div class="menu-item">
-<span>Caldo de pescado a la leña 
-<span class="etiqueta hoy">HOY</span>
+<div class="item-left">
+<img class="product-img" src="IMG-20260314-WA0001.jpg" onclick="verImagen('IMG-20260314-WA0001.jpg')">
+<div class="menu-text">
+Caldo de pescado a la leña <span class="etiqueta hoy">HOY</span>
 <small>(acompañado de tortillas de mano)</small>
-<span class="verfoto" onclick="verImagen('IMG-20260314-WA0001.jpg')">VER FOTOS</span>
-</span>
+</div>
+</div>
 <span>$100</span>
 </div>
 
 <div class="menu-item">
-<span>Pechuga empanizada
+<div class="item-left">
+<img class="product-img" src="PechugaEmpanizada.jpg" onclick="verImagen('PechugaEmpanizada.jpg')">
+<div class="menu-text">
+Pechuga empanizada
 <small>(acompañada de espagueti y tortillas)</small>
-<span class="verfoto" onclick="verImagen('PechugaEmpanizada.jpg')">VER FOTOS</span>
-</span>
+</div>
+</div>
 <span>$90</span>
 </div>
 
 <div class="menu-item">
-<span>Picadillo de res a la mexicana
+<div class="item-left">
+<img class="product-img" src="Picadillo.jpeg" onclick="verImagen('Picadillo.jpeg')">
+<div class="menu-text">
+Picadillo de res a la mexicana
 <small>(acompañado de espagueti y tortillas)</small>
-<span class="verfoto" onclick="verImagen('Picadillo.jpeg')">VER FOTOS</span>
-</span>
+</div>
+</div>
 <span>$90</span>
 </div>
 
 <div class="subtitulo">ANTOJITOS</div>
 
 <div class="menu-item">
-<span>Hot Dogs
-<span class="verfoto" onclick="abrirReelHotdogs()">VER FOTOS</span>
-</span>
+<div class="item-left">
+<img class="product-img" src="HotDogs.jpeg" onclick="verImagen('HotDogs.jpeg')">
+<div class="menu-text">Hot Dogs</div>
+</div>
 <span>$45</span>
 </div>
 
 <div class="menu-item">
-<span>Tlayuda especial (cecina, chorizo y quesillo)</span>
+<div class="item-left">
+<div class="menu-text">Tlayuda especial (cecina, chorizo y quesillo)</div>
+</div>
 <span>$90</span>
 </div>
 
 <div class="menu-item">
-<span>Tlayuda doble</span>
+<div class="item-left">
+<div class="menu-text">Tlayuda doble</div>
+</div>
 <span>$80</span>
 </div>
 
 <div class="menu-item">
-<span>Picaditas</span>
+<div class="item-left">
+<div class="menu-text">Picaditas</div>
+</div>
 <span>$20 c/u</span>
 </div>
 
 <div class="menu-item">
-<span>Empanadas al comal</span>
+<div class="item-left">
+<div class="menu-text">Empanadas al comal</div>
+</div>
 <span>$20 c/u</span>
 </div>
 
 <div class="subtitulo">BEBIDAS</div>
 
 <div class="menu-item">
-<span>Agua de horchata / jamaica</span>
+<div class="item-left">
+<img class="product-img" src="AguaJamaica.jpg" onclick="verImagen('AguaJamaica.jpg')">
+<div class="menu-text">Agua de horchata / jamaica</div>
+</div>
 <span>$15 medio / $25 litro</span>
 </div>
 
 <div class="menu-item">
-<span>Mezcalina de nanche
-<span class="etiqueta promo">PROMO</span>
-<span class="verfoto" onclick="verImagen('Mezcalina.jpeg')">VER FOTOS</span>
-</span>
+<div class="item-left">
+<img class="product-img" src="Mezcalina.jpeg" onclick="verImagen('Mezcalina.jpeg')">
+<div class="menu-text">Mezcalina de nanche <span class="etiqueta promo">PROMO</span></div>
+</div>
 <span>$50</span>
 </div>
 
 <div class="menu-item">
-<span>Mezcalina de fresa
-<span class="etiqueta promo">PROMO</span>
-<span class="verfoto" onclick="verImagen('MezcalinaFresa.jpg')">VER FOTOS</span>
-</span>
+<div class="item-left">
+<img class="product-img" src="MezcalinaFresa.jpg" onclick="verImagen('MezcalinaFresa.jpg')">
+<div class="menu-text">Mezcalina de fresa <span class="etiqueta promo">PROMO</span></div>
+</div>
 <span>$50</span>
 </div>
 
@@ -373,6 +336,10 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 📲 PEDIDOS:<br>
 953 154 3729 | 56 3475 4554
 
+</div>
+
+<div class="share-menu" onclick="compartirMenu()">
+📲 COMPARTIR MENÚ POR WHATSAPP
 </div>
 
 </div>
@@ -395,43 +362,12 @@ CLICK PARA CERRAR
 
 </div>
 
-<!-- REEL -->
-
-<div id="reelHotdogs" class="reel">
-
-<div class="modal-texto">
-CLICK PARA CERRAR
-</div>
-
-<div class="reel-text">
-🌭 HOT DOGS<br>
-<span style="font-size:13px;color:#ccc;">Desliza para ver más</span>
-</div>
-
-<div class="reel-container">
-
-<div class="progress">
-<div class="progress-bar" id="progressBar"></div>
-</div>
-
-<img id="reelImg">
-
-</div>
-
-<div class="reel-indicador">
-<span id="reelNum">1</span>/3
-</div>
-
-<div class="share" onclick="compartirHotdogs()">
-📤 Compartir en WhatsApp
-</div>
-
-</div>
-
 <a class="whatsapp-btn"
 href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO?mode=gi_t"
 target="_blank">
+
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+
 </a>
 
 <script>
@@ -449,84 +385,11 @@ function cerrarImagen(){
 document.getElementById("modalImagen").style.display="none";
 }
 
-/* REEL */
+function compartirMenu(){
 
-let reelImgs=["HotDogs.jpeg","HotDogs2.jpg","HotDogs3.jpg"]
-let reelIndex=0
-let reelInterval
-let startX=0
+const url=window.location.href
 
-function abrirReelHotdogs(){
-
-document.getElementById("reelHotdogs").style.display="flex"
-
-reelIndex=0
-actualizarReel()
-animarBarra()
-
-reelInterval=setInterval(()=>{
-nextReel()
-},3000)
-
-}
-
-function actualizarReel(){
-document.getElementById("reelImg").src=reelImgs[reelIndex]
-document.getElementById("reelNum").innerText=reelIndex+1
-}
-
-function nextReel(){
-reelIndex++
-if(reelIndex>=reelImgs.length) reelIndex=0
-actualizarReel()
-animarBarra()
-}
-
-function animarBarra(){
-const bar=document.getElementById("progressBar")
-bar.style.transition="none"
-bar.style.width="0%"
-setTimeout(()=>{
-bar.style.transition="width 3s linear"
-bar.style.width="100%"
-},50)
-}
-
-/* swipe */
-
-const img=document.getElementById("reelImg")
-
-img.addEventListener("touchstart",(e)=>{
-startX=e.touches[0].clientX
-})
-
-img.addEventListener("touchend",(e)=>{
-let endX=e.changedTouches[0].clientX
-
-if(startX-endX>50){
-nextReel()
-}
-
-if(endX-startX>50){
-reelIndex--
-if(reelIndex<0) reelIndex=reelImgs.length-1
-actualizarReel()
-animarBarra()
-}
-
-})
-
-img.addEventListener("click",cerrarReel)
-
-function cerrarReel(){
-clearInterval(reelInterval)
-document.getElementById("reelHotdogs").style.display="none"
-}
-
-function compartirHotdogs(){
-
-const url=window.location.origin+window.location.pathname+"#hotdogs"
-const texto="🌭 Mira nuestros Hot Dogs 👇\n"+url
+const texto="🍽️ Mira nuestro menú 👇\n"+url
 
 window.open("https://wa.me/?text="+encodeURIComponent(texto))
 
