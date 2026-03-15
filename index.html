@@ -126,8 +126,6 @@ font-weight:600;
 cursor:pointer;
 }
 
-/* MODAL */
-
 .modal{
 display:none;
 position:fixed;
@@ -153,8 +151,6 @@ max-height:80%;
 border-radius:10px;
 }
 
-/* REEL */
-
 .reel{
 display:none;
 position:fixed;
@@ -167,6 +163,12 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 z-index:500;
+}
+
+.reel-text{
+color:white;
+margin-bottom:10px;
+text-align:center;
 }
 
 .reel-container{
@@ -204,13 +206,16 @@ background:#ffd76a;
 .reel-indicador{
 margin-top:12px;
 color:white;
+font-size:16px;
 }
 
 .share{
-margin-top:10px;
+margin-top:12px;
 background:#25D366;
-padding:8px 14px;
+padding:10px 14px;
 border-radius:8px;
+color:white;
+font-size:14px;
 cursor:pointer;
 }
 
@@ -229,6 +234,14 @@ justify-content:center;
 
 .whatsapp-btn img{
 width:34px;
+}
+
+footer{
+text-align:center;
+padding:25px;
+background:#141414;
+color:#777;
+font-size:13px;
 }
 
 </style>
@@ -262,7 +275,7 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 <div class="item-left">
 <img class="product-img" src="IMG-20260314-WA0001.jpg" onclick="abrirReel('mojarra')">
 <div class="menu-text">
-Caldo de mojarra
+Caldo de mojarra a la leña
 <small>(acompañado de tortillas de mano)</small>
 </div>
 </div>
@@ -312,7 +325,7 @@ Sincronizadas
 <small>(jamón, salchicha, queso manchego, quesillo)</small>
 </div>
 </div>
-<span>$50</span>
+<span>$45</span>
 </div>
 
 <div class="menu-item">
@@ -399,6 +412,11 @@ Agradecemos su preferencia
 
 <div class="modal-texto">CLICK PARA CERRAR</div>
 
+<div class="reel-text">
+<span id="reelTitulo"></span><br>
+<span style="font-size:13px;color:#ccc;">Desliza para ver más</span>
+</div>
+
 <div class="reel-container">
 
 <div class="progress">
@@ -410,11 +428,11 @@ Agradecemos su preferencia
 </div>
 
 <div class="reel-indicador">
-<span id="reelNum">1</span>/3
+<span id="reelNum"></span>
 </div>
 
 <div class="share" onclick="compartirReel()">
-📲 COMPARTIR
+📲 COMPARTIR POR WHATSAPP
 </div>
 
 </div>
@@ -445,6 +463,8 @@ function abrirReel(tipo){
 tipoActual=tipo
 reelImgs=reels[tipo]
 
+document.getElementById("reelTitulo").innerText=tipo.toUpperCase()
+
 document.getElementById("reel").style.display="flex"
 
 reelIndex=0
@@ -458,7 +478,7 @@ intervalo=setInterval(siguiente,3000)
 function actualizar(){
 
 document.getElementById("reelImg").src=reelImgs[reelIndex]
-document.getElementById("reelNum").innerText=reelIndex+1
+document.getElementById("reelNum").innerText=(reelIndex+1)+" / "+reelImgs.length
 
 }
 
@@ -518,14 +538,6 @@ window.open("https://wa.me/?text="+encodeURIComponent(url))
 
 }
 
-window.onload=function(){
-
-const hash=window.location.hash.replace("#","")
-
-if(reels[hash]) abrirReel(hash)
-
-}
-
 function verImagen(src){
 document.getElementById("modalImagen").style.display="flex"
 document.getElementById("imagenProducto").src=src
@@ -538,6 +550,14 @@ document.getElementById("modalImagen").style.display="none"
 function compartirMenu(){
 const url=window.location.href
 window.open("https://wa.me/?text="+encodeURIComponent(url))
+}
+
+window.onload=function(){
+
+const hash=window.location.hash.replace("#","")
+
+if(reels[hash]) abrirReel(hash)
+
 }
 
 </script>
