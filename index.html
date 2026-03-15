@@ -131,6 +131,8 @@ color:#ffd76a;
 font-size:14px;
 }
 
+/* MODAL */
+
 .modal{
 display:none;
 position:fixed;
@@ -198,8 +200,6 @@ max-width:90%;
 border-radius:12px;
 }
 
-/* barra progreso */
-
 .progress{
 position:absolute;
 top:10px;
@@ -232,6 +232,8 @@ color:white;
 font-size:14px;
 cursor:pointer;
 }
+
+/* WHATSAPP */
 
 .whatsapp-btn{
 position:fixed;
@@ -300,6 +302,7 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 <div class="menu-item">
 <span>Pechuga empanizada
 <small>(acompañada de espagueti y tortillas)</small>
+<span class="verfoto" onclick="verImagen('PechugaEmpanizada.jpg')">VER FOTOS</span>
 </span>
 <span>$90</span>
 </div>
@@ -383,13 +386,22 @@ Agradecemos su preferencia
 <!-- MODAL -->
 
 <div id="modalImagen" class="modal" onclick="cerrarImagen()">
-<div class="modal-texto">CLICK PARA CERRAR</div>
+
+<div class="modal-texto">
+CLICK PARA CERRAR
+</div>
+
 <img id="imagenProducto">
+
 </div>
 
 <!-- REEL -->
 
 <div id="reelHotdogs" class="reel">
+
+<div class="modal-texto">
+CLICK PARA CERRAR
+</div>
 
 <div class="reel-text">
 🌭 HOT DOGS<br>
@@ -436,6 +448,8 @@ document.getElementById("imagenProducto").src=src;
 function cerrarImagen(){
 document.getElementById("modalImagen").style.display="none";
 }
+
+/* REEL */
 
 let reelImgs=["HotDogs.jpeg","HotDogs2.jpg","HotDogs3.jpg"]
 let reelIndex=0
@@ -512,17 +526,10 @@ document.getElementById("reelHotdogs").style.display="none"
 function compartirHotdogs(){
 
 const url=window.location.origin+window.location.pathname+"#hotdogs"
-
 const texto="🌭 Mira nuestros Hot Dogs 👇\n"+url
 
 window.open("https://wa.me/?text="+encodeURIComponent(texto))
 
-}
-
-window.onload=function(){
-if(window.location.hash=="#hotdogs"){
-abrirReelHotdogs()
-}
 }
 
 </script>
