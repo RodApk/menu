@@ -155,15 +155,15 @@ flex-direction:column;
 z-index:200;
 }
 
-.modal-texto{
-color:white;
-margin-bottom:10px;
-}
-
 .modal img{
 max-width:90%;
 max-height:80%;
 border-radius:10px;
+}
+
+.modal-texto{
+color:white;
+margin-bottom:10px;
 }
 
 /* REEL */
@@ -182,15 +182,8 @@ flex-direction:column;
 z-index:500;
 }
 
-.reel-text{
-color:white;
-margin-bottom:10px;
-text-align:center;
-}
-
 .reel-container{
 position:relative;
-width:100%;
 height:70vh;
 display:flex;
 align-items:center;
@@ -211,7 +204,6 @@ right:10px;
 height:4px;
 background:#444;
 border-radius:4px;
-overflow:hidden;
 }
 
 .progress-bar{
@@ -222,7 +214,6 @@ background:#ffd76a;
 
 .reel-indicador{
 margin-top:12px;
-color:white;
 font-size:16px;
 }
 
@@ -231,8 +222,6 @@ margin-top:12px;
 background:#25D366;
 padding:10px 14px;
 border-radius:8px;
-color:white;
-font-size:14px;
 cursor:pointer;
 }
 
@@ -270,6 +259,7 @@ font-size:13px;
 
 <header>
 <img src="logo-las-dos-marias.png" onclick="verImagen('MenuGeneral.jpg')">
+
 <div class="header-text">
 <div class="nombre">LAS DOS MARÍAS</div>
 <p id="fecha"></p>
@@ -347,25 +337,6 @@ Sincronizadas
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="TlayudaEspecial.jpg" onclick="verImagen('TlayudaEspecial.jpg')">
-<div class="menu-text">
-Tlayuda especial
-<small>(cecina, chorizo y quesillo)</small>
-</div>
-</div>
-<span>$90</span>
-</div>
-
-<div class="menu-item">
-<div class="item-left">
-<img class="product-img" src="TlayudaDoble.jpg" onclick="verImagen('TlayudaDoble.jpg')">
-<div class="menu-text">Tlayuda doble</div>
-</div>
-<span>$80</span>
-</div>
-
-<div class="menu-item">
-<div class="item-left">
 <img class="product-img" src="Picaditas.jpg" onclick="abrirReel('picaditas')">
 <div class="menu-text">
 Picaditas
@@ -383,42 +354,6 @@ Picaditas
 <span>$20 c/u</span>
 </div>
 
-<div class="subtitulo">BEBIDAS</div>
-
-<div class="menu-item">
-<div class="item-left">
-<img class="product-img" src="AguaJamaica.jpg" onclick="verImagen('AguaJamaica.jpg')">
-<div class="menu-text">Agua de horchata / jamaica</div>
-</div>
-<span>$15 medio / $25 litro</span>
-</div>
-
-<div class="menu-item">
-<div class="item-left">
-<img class="product-img" src="Mezcalina.jpeg">
-<div class="menu-text">Mezcalina de nanche <span class="etiqueta promo">PROMO</span></div>
-</div>
-<span>$50</span>
-</div>
-
-<div class="menu-item">
-<div class="item-left">
-<img class="product-img" src="MezcalinaFresa.jpg">
-<div class="menu-text">Mezcalina de fresa <span class="etiqueta promo">PROMO</span></div>
-</div>
-<span>$50</span>
-</div>
-
-<div class="servicio">
-🚚 CONTAMOS CON SERVICIO A DOMICILIO<br><br>
-📲 PEDIDOS:<br>
-953 154 3729 | 56 3475 4554
-</div>
-
-<div class="share-menu" onclick="compartirMenu()">
-📲 COMPARTIR MENÚ
-</div>
-
 </div>
 
 <footer>
@@ -426,3 +361,184 @@ Agradecemos su preferencia
 </footer>
 
 </div>
+
+<div id="modalImagen" class="modal" onclick="cerrarImagen()">
+<div class="modal-texto">CLICK PARA CERRAR</div>
+<img id="imagenProducto">
+</div>
+
+<div id="reel" class="reel">
+
+<div class="modal-texto">CLICK PARA CERRAR</div>
+
+<div class="reel-text">
+<span id="reelTitulo"></span><br>
+<span style="font-size:13px;color:#ccc;">Desliza para ver más</span>
+</div>
+
+<div class="reel-container">
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<img id="reelImg">
+
+</div>
+
+<div class="reel-indicador">
+<span id="reelNum"></span>
+</div>
+
+<div class="share" onclick="compartirReel()">
+📲 COMPARTIR POR WHATSAPP
+</div>
+
+</div>
+
+<script>
+
+/* FECHA */
+
+const opciones={weekday:'long',year:'numeric',month:'long',day:'numeric'}
+document.getElementById("fecha").innerText=new Date().toLocaleDateString('es-MX',opciones)
+
+/* MODAL */
+
+function verImagen(src){
+
+history.replaceState(null,null,"#imagen-"+src)
+
+document.getElementById("modalImagen").style.display="flex"
+document.getElementById("imagenProducto").src=src
+
+}
+
+function cerrarImagen(){
+document.getElementById("modalImagen").style.display="none"
+}
+
+/* REELS */
+
+const reels={
+hotdogs:["HotDogs.jpeg","HotDogs2.jpg","HotDogs3.jpg"],
+sincronizadas:["Sincronizada.jpg","Sincronizada2.jpg","Sincronizada3.jpg"],
+picaditas:["Picaditas.jpg","Picaditas3.jpg","PicaditasHuevo.jpg"],
+mojarra:["IMG-20260314-WA0001.jpg","CaldoPescado2.jpg"]
+}
+
+let tipoActual=""
+let reelImgs=[]
+let reelIndex=0
+let intervalo
+let startX=0
+
+function abrirReel(tipo){
+
+history.replaceState(null,null,"#"+tipo)
+
+tipoActual=tipo
+reelImgs=reels[tipo]
+
+document.getElementById("reelTitulo").innerText=tipo
+document.getElementById("reel").style.display="flex"
+
+reelIndex=0
+actualizar()
+animar()
+
+intervalo=setInterval(next,3000)
+
+}
+
+function actualizar(){
+
+document.getElementById("reelImg").src=reelImgs[reelIndex]
+document.getElementById("reelNum").innerText=(reelIndex+1)+" / "+reelImgs.length
+
+}
+
+function next(){
+
+reelIndex++
+if(reelIndex>=reelImgs.length) reelIndex=0
+
+actualizar()
+animar()
+
+}
+
+function animar(){
+
+const bar=document.getElementById("progressBar")
+
+bar.style.transition="none"
+bar.style.width="0%"
+
+setTimeout(()=>{
+bar.style.transition="width 3s linear"
+bar.style.width="100%"
+},50)
+
+}
+
+/* SWIPE */
+
+const img=document.getElementById("reelImg")
+
+img.addEventListener("touchstart",(e)=>{
+startX=e.touches[0].clientX
+})
+
+img.addEventListener("touchend",(e)=>{
+
+let endX=e.changedTouches[0].clientX
+
+if(startX-endX>50) next()
+
+if(endX-startX>50){
+reelIndex--
+if(reelIndex<0) reelIndex=reelImgs.length-1
+actualizar()
+animar()
+}
+
+})
+
+img.addEventListener("click",cerrarReel)
+
+function cerrarReel(){
+clearInterval(intervalo)
+document.getElementById("reel").style.display="none"
+}
+
+/* ABRIR LINKS DIRECTOS */
+
+window.onload=function(){
+
+let hash=window.location.hash.replace("#","")
+
+if(reels[hash]){
+abrirReel(hash)
+}
+
+if(hash.startsWith("imagen-")){
+verImagen(hash.replace("imagen-",""))
+}
+
+}
+
+/* COMPARTIR */
+
+function compartirReel(){
+
+const url=window.location.origin+window.location.pathname+"#"+tipoActual
+
+window.open("https://wa.me/?text="+encodeURIComponent(url))
+
+}
+
+</script>
+
+</body>
+</html>
