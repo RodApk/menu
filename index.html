@@ -134,16 +134,6 @@ color:#ffd76a;
 font-size:14px;
 }
 
-.share-menu{
-margin-top:20px;
-background:#25D366;
-padding:12px;
-border-radius:10px;
-text-align:center;
-font-weight:600;
-cursor:pointer;
-}
-
 /* MODAL */
 
 .modal{
@@ -174,6 +164,76 @@ font-size:14px;
 max-width:90%;
 max-height:80%;
 border-radius:10px;
+}
+
+/* REEL */
+
+.reel{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:black;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:500;
+}
+
+.reel-text{
+color:white;
+margin-bottom:10px;
+text-align:center;
+}
+
+.reel-container{
+position:relative;
+width:100%;
+height:70vh;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.reel img{
+max-height:100%;
+max-width:90%;
+border-radius:12px;
+}
+
+.progress{
+position:absolute;
+top:10px;
+left:10px;
+right:10px;
+height:4px;
+background:#444;
+border-radius:4px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:#ffd76a;
+}
+
+.reel-indicador{
+margin-top:12px;
+color:white;
+font-size:14px;
+}
+
+.share{
+margin-top:10px;
+background:#25D366;
+padding:8px 14px;
+border-radius:8px;
+color:white;
+font-size:14px;
+cursor:pointer;
 }
 
 /* WHATSAPP */
@@ -213,12 +273,14 @@ font-size:13px;
 <div class="container">
 
 <header>
+
 <img src="logo-las-dos-marias.png" onclick="verImagen('MenuGeneral.jpg')">
 
 <div class="header-text">
 <div class="nombre">LAS DOS MARÍAS</div>
 <p id="fecha"></p>
 </div>
+
 </header>
 
 <div class="horario">
@@ -270,8 +332,13 @@ Picadillo de res a la mexicana
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="HotDogs.jpeg" onclick="verImagen('HotDogs.jpeg')">
-<div class="menu-text">Hot Dogs</div>
+
+<img class="product-img" src="HotDogs.jpeg" onclick="abrirReelHotdogs()">
+
+<div class="menu-text">
+Hot Dogs
+</div>
+
 </div>
 <span>$45</span>
 </div>
@@ -309,7 +376,9 @@ Picadillo de res a la mexicana
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="AguaJamaica.jpg" onclick="verImagen('AguaJamaica.jpg')">
-<div class="menu-text">Agua de horchata / jamaica</div>
+<div class="menu-text">
+Agua de horchata / jamaica
+</div>
 </div>
 <span>$15 medio / $25 litro</span>
 </div>
@@ -317,7 +386,9 @@ Picadillo de res a la mexicana
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="Mezcalina.jpeg" onclick="verImagen('Mezcalina.jpeg')">
-<div class="menu-text">Mezcalina de nanche <span class="etiqueta promo">PROMO</span></div>
+<div class="menu-text">
+Mezcalina de nanche <span class="etiqueta promo">PROMO</span>
+</div>
 </div>
 <span>$50</span>
 </div>
@@ -325,7 +396,9 @@ Picadillo de res a la mexicana
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="MezcalinaFresa.jpg" onclick="verImagen('MezcalinaFresa.jpg')">
-<div class="menu-text">Mezcalina de fresa <span class="etiqueta promo">PROMO</span></div>
+<div class="menu-text">
+Mezcalina de fresa <span class="etiqueta promo">PROMO</span>
+</div>
 </div>
 <span>$50</span>
 </div>
@@ -336,10 +409,6 @@ Picadillo de res a la mexicana
 📲 PEDIDOS:<br>
 953 154 3729 | 56 3475 4554
 
-</div>
-
-<div class="share-menu" onclick="compartirMenu()">
-📲 COMPARTIR MENÚ POR WHATSAPP
 </div>
 
 </div>
@@ -362,6 +431,35 @@ CLICK PARA CERRAR
 
 </div>
 
+<!-- REEL HOTDOGS -->
+
+<div id="reelHotdogs" class="reel">
+
+<div class="modal-texto">
+CLICK PARA CERRAR
+</div>
+
+<div class="reel-text">
+🌭 HOT DOGS<br>
+<span style="font-size:13px;color:#ccc;">Desliza para ver más</span>
+</div>
+
+<div class="reel-container">
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<img id="reelImg">
+
+</div>
+
+<div class="reel-indicador">
+<span id="reelNum">1</span>/3
+</div>
+
+</div>
+
 <a class="whatsapp-btn"
 href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO?mode=gi_t"
 target="_blank">
@@ -376,6 +474,8 @@ const opciones={weekday:'long',year:'numeric',month:'long',day:'numeric'};
 const hoy=new Date().toLocaleDateString('es-MX',opciones);
 document.getElementById('fecha').textContent=hoy.charAt(0).toUpperCase()+hoy.slice(1);
 
+/* MODAL */
+
 function verImagen(src){
 document.getElementById("modalImagen").style.display="flex";
 document.getElementById("imagenProducto").src=src;
@@ -385,14 +485,85 @@ function cerrarImagen(){
 document.getElementById("modalImagen").style.display="none";
 }
 
-function compartirMenu(){
+/* REEL */
 
-const url=window.location.href
+let reelImgs=["HotDogs.jpeg","HotDogs2.jpg","HotDogs3.jpg"]
+let reelIndex=0
+let reelInterval
+let startX=0
 
-const texto="🍽️ Mira nuestro menú 👇\n"+url
+function abrirReelHotdogs(){
 
-window.open("https://wa.me/?text="+encodeURIComponent(texto))
+document.getElementById("reelHotdogs").style.display="flex"
 
+reelIndex=0
+actualizarReel()
+animarBarra()
+
+reelInterval=setInterval(()=>{
+nextReel()
+},3000)
+
+}
+
+function actualizarReel(){
+
+document.getElementById("reelImg").src=reelImgs[reelIndex]
+document.getElementById("reelNum").innerText=reelIndex+1
+
+}
+
+function nextReel(){
+
+reelIndex++
+if(reelIndex>=reelImgs.length) reelIndex=0
+actualizarReel()
+animarBarra()
+
+}
+
+function animarBarra(){
+
+const bar=document.getElementById("progressBar")
+
+bar.style.transition="none"
+bar.style.width="0%"
+
+setTimeout(()=>{
+bar.style.transition="width 3s linear"
+bar.style.width="100%"
+},50)
+
+}
+
+const img=document.getElementById("reelImg")
+
+img.addEventListener("touchstart",(e)=>{
+startX=e.touches[0].clientX
+})
+
+img.addEventListener("touchend",(e)=>{
+
+let endX=e.changedTouches[0].clientX
+
+if(startX-endX>50){
+nextReel()
+}
+
+if(endX-startX>50){
+reelIndex--
+if(reelIndex<0) reelIndex=reelImgs.length-1
+actualizarReel()
+animarBarra()
+}
+
+})
+
+img.addEventListener("click",cerrarReel)
+
+function cerrarReel(){
+clearInterval(reelInterval)
+document.getElementById("reelHotdogs").style.display="none"
 }
 
 </script>
