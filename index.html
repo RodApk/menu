@@ -139,6 +139,8 @@ font-weight:600;
 cursor:pointer;
 }
 
+/* MODAL */
+
 .modal{
 display:none;
 position:fixed;
@@ -163,6 +165,8 @@ border-radius:10px;
 color:white;
 margin-bottom:10px;
 }
+
+/* REEL */
 
 .reel{
 display:none;
@@ -261,6 +265,7 @@ font-size:13px;
 
 <header>
 <img src="logo-las-dos-marias.png" onclick="verImagen('MenuGeneral.jpg')">
+
 <div class="header-text">
 <div class="nombre">LAS DOS MARÍAS</div>
 <p id="fecha"></p>
@@ -336,6 +341,28 @@ Hot Dogs gratinados
 <span>$45</span>
 </div>
 
+<div class="menu-item">
+<div class="item-left">
+<img class="product-img" src="Sincronizada.jpg" onclick="abrirReel('sincronizadas')">
+<div class="menu-text">
+Sincronizadas
+<small>(jamón, salchicha, queso manchego, quesillo)</small>
+</div>
+</div>
+<span>$45</span>
+</div>
+
+<div class="menu-item">
+<div class="item-left">
+<img class="product-img" src="Picaditas.jpg" onclick="abrirReel('picaditas')">
+<div class="menu-text">
+Picaditas
+<small>(cecina, quesillo y chorizo)</small>
+</div>
+</div>
+<span>$20 c/u</span>
+</div>
+
 </div>
 
 <footer>
@@ -344,119 +371,14 @@ Agradecemos su preferencia
 
 </div>
 
-<div id="modalImagen" class="modal" onclick="cerrarImagen()">
-<div class="modal-texto">CLICK PARA CERRAR</div>
-<img id="imagenProducto">
-</div>
-
-<div id="reel" class="reel">
-
-<div class="modal-texto">CLICK PARA CERRAR</div>
-
-<div class="reel-text">
-<span id="reelTitulo"></span><br>
-<span style="font-size:13px;color:#ccc;">Desliza para ver más</span>
-</div>
-
-<div class="reel-container">
-
-<div class="progress">
-<div class="progress-bar" id="progressBar"></div>
-</div>
-
-<img id="reelImg">
-
-</div>
-
-<div class="reel-indicador">
-<span id="reelNum"></span>
-</div>
-
-<div class="share" onclick="compartirReel()">
-📲 COMPARTIR POR WHATSAPP
-</div>
-
-</div>
-
 <script>
 
 const reels={
 hotdogs:["HotDogs.jpeg","HotDogs2.jpg","HotDogs3.jpg"],
+sincronizadas:["Sincronizada.jpg","Sincronizada2.jpg","Sincronizada3.jpg"],
+picaditas:["Picaditas.jpg","Picaditas3.jpg","PicaditasHuevo.jpg"],
+mojarra:["IMG-20260314-WA0001.jpg","CaldoPescado2.jpg"],
 costilla:["CostillaAsada.jpg","CostillaAsada2.jpg","CostillaAsada3.jpg"]
-}
-
-let tipoActual=""
-let reelImgs=[]
-let reelIndex=0
-let intervalo
-
-function abrirReel(tipo){
-
-tipoActual=tipo
-reelImgs=reels[tipo]
-
-document.getElementById("reelTitulo").innerText=tipo.toUpperCase()
-
-document.getElementById("reel").style.display="flex"
-
-reelIndex=0
-actualizar()
-animar()
-
-intervalo=setInterval(next,3000)
-
-}
-
-function actualizar(){
-
-document.getElementById("reelImg").src=reelImgs[reelIndex]
-document.getElementById("reelNum").innerText=(reelIndex+1)+" / "+reelImgs.length
-
-}
-
-function next(){
-
-reelIndex++
-if(reelIndex>=reelImgs.length) reelIndex=0
-
-actualizar()
-animar()
-
-}
-
-function animar(){
-
-const bar=document.getElementById("progressBar")
-
-bar.style.transition="none"
-bar.style.width="0%"
-
-setTimeout(()=>{
-bar.style.transition="width 3s linear"
-bar.style.width="100%"
-},50)
-
-}
-
-function cerrarReel(){
-clearInterval(intervalo)
-document.getElementById("reel").style.display="none"
-}
-
-document.getElementById("reelImg").onclick=cerrarReel
-
-function verImagen(src){
-document.getElementById("modalImagen").style.display="flex"
-document.getElementById("imagenProducto").src=src
-}
-
-function cerrarImagen(){
-document.getElementById("modalImagen").style.display="none"
-}
-
-function compartirReel(){
-const url=window.location.origin+window.location.pathname+"#"+tipoActual
-window.open("https://wa.me/?text="+encodeURIComponent(url))
 }
 
 </script>
