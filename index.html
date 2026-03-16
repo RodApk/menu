@@ -139,8 +139,6 @@ font-weight:600;
 cursor:pointer;
 }
 
-/* MODAL */
-
 .modal{
 display:none;
 position:fixed;
@@ -165,8 +163,6 @@ border-radius:10px;
 color:white;
 margin-bottom:10px;
 }
-
-/* REEL */
 
 .reel{
 display:none;
@@ -197,6 +193,12 @@ justify-content:center;
 }
 
 .reel img{
+max-height:100%;
+max-width:90%;
+border-radius:12px;
+}
+
+video{
 max-height:100%;
 max-width:90%;
 border-radius:12px;
@@ -380,7 +382,7 @@ Picaditas
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="CostillaAsada.jpg" onclick="abrirReel('costilla')">
+<img class="product-img" src="CarneAsada.jpg" onclick="abrirReel('costilla')">
 <div class="menu-text">
 Costilla asada
 <small>(costilla asada al carbón)</small>
@@ -454,6 +456,7 @@ Agradecemos su preferencia
 </div>
 
 <img id="reelImg">
+<video id="reelVideo" autoplay muted loop playsinline style="display:none"></video>
 
 </div>
 
@@ -491,7 +494,7 @@ hotdogs:["HotDogs.jpeg","HotDogs2.jpg","HotDogs3.jpg"],
 sincronizadas:["Sincronizada.jpg","Sincronizada2.jpg","Sincronizada3.jpg"],
 picaditas:["Picaditas.jpg","Picaditas3.jpg","PicaditasHuevo.jpg"],
 mojarra:["IMG-20260314-WA0001.jpg","CaldoPescado2.jpg"],
-costilla:["CostillaAsada.jpg","CostillaAsada2.jpg","CostillaAsada3.jpg", "CostillaVideo.mp4"]
+costilla:["CarneAsada.jpg","CarneAsada2.jpg","CarneAsada3.jpg","CostillaVideo.mp4"]
 };
 
 let tipoActual="";
@@ -518,8 +521,32 @@ intervalo=setInterval(next,3000);
 }
 
 function actualizar(){
-document.getElementById("reelImg").src=reelImgs[reelIndex];
+
+const img=document.getElementById("reelImg");
+const video=document.getElementById("reelVideo");
+
+let archivo=reelImgs[reelIndex];
+
+if(archivo.endsWith(".mp4")){
+
+img.style.display="none";
+video.style.display="block";
+
+video.src=archivo;
+video.play();
+
+}else{
+
+video.pause();
+video.style.display="none";
+img.style.display="block";
+
+img.src=archivo;
+
+}
+
 document.getElementById("reelNum").innerText=(reelIndex+1)+" / "+reelImgs.length;
+
 }
 
 function next(){
