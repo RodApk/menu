@@ -139,8 +139,6 @@ font-weight:600;
 cursor:pointer;
 }
 
-/* MODAL */
-
 .modal{
 display:none;
 position:fixed;
@@ -165,8 +163,6 @@ border-radius:10px;
 color:white;
 margin-bottom:10px;
 }
-
-/* REEL */
 
 .reel{
 display:none;
@@ -285,28 +281,6 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="IMG-20260314-WA0001.jpg" onclick="abrirReel('mojarra')">
-<div class="menu-text">
-Caldo de mojarra a la leña
-<small>(acompañado de tortillas de mano)</small>
-</div>
-</div>
-<span>$100</span>
-</div>
-
-<div class="menu-item">
-<div class="item-left">
-<img class="product-img" src="PechugaEmpanizada.jpg" onclick="verImagen('PechugaEmpanizada.jpg')">
-<div class="menu-text">
-Pechuga empanizada
-<small>(acompañada de espagueti y tortillas)</small>
-</div>
-</div>
-<span>$90</span>
-</div>
-
-<div class="menu-item">
-<div class="item-left">
 <img class="product-img" src="Picadillo.jpeg" onclick="verImagen('Picadillo.jpeg')">
 <div class="menu-text">
 Picadillo de res a la mexicana
@@ -314,6 +288,17 @@ Picadillo de res a la mexicana
 </div>
 </div>
 <span>$90</span>
+</div>
+
+<div class="menu-item">
+<div class="item-left">
+<img class="product-img" src="FajitasRes.jpg" onclick="verImagen('FajitasRes.jpg')">
+<div class="menu-text">
+Fajitas de res
+<small>(acompañadas de tortillas)</small>
+</div>
+</div>
+<span>$80</span>
 </div>
 
 <div class="subtitulo">ANTOJITOS</div>
@@ -338,6 +323,17 @@ Sincronizadas
 </div>
 </div>
 <span>$45</span>
+</div>
+
+<div class="menu-item">
+<div class="item-left">
+<img class="product-img" src="Flor.jpg" onclick="abrirReel('flor')">
+<div class="menu-text">
+Quesadillas de flor de calabaza
+<small>(con champiñones)</small>
+</div>
+</div>
+<span>$35 c/u</span>
 </div>
 
 <div class="menu-item">
@@ -476,12 +472,8 @@ Agradecemos su preferencia
 
 <script>
 
-/* FECHA */
-
 const opciones={weekday:'long',year:'numeric',month:'long',day:'numeric'};
 document.getElementById("fecha").innerText=new Date().toLocaleDateString('es-MX',opciones);
-
-/* MODAL */
 
 function verImagen(src){
 history.replaceState(null,null,"#imagen-"+src);
@@ -493,14 +485,13 @@ function cerrarImagen(){
 document.getElementById("modalImagen").style.display="none";
 }
 
-/* REELS */
-
 const reels={
 hotdogs:["HotDogs.jpeg","HotDogs2.jpg","HotDogs3.jpg"],
 sincronizadas:["Sincronizada.jpg","Sincronizada2.jpg","Sincronizada3.jpg"],
 picaditas:["Picaditas.jpg","Picaditas3.jpg","PicaditasHuevo.jpg"],
 mojarra:["IMG-20260314-WA0001.jpg","CaldoPescado2.jpg"],
-costilla:["CostillaAsada.jpg","CostillaAsada2.jpg","CostillaAsada3.jpg","CostillaVideo.mp4"]
+costilla:["CostillaAsada.jpg","CostillaAsada2.jpg","CostillaAsada3.jpg","CostillaVideo.mp4"],
+flor:["Flor.jpg","Flor2.jpg","Flor3.jpg"]
 };
 
 let tipoActual="";
@@ -510,47 +501,35 @@ let intervalo;
 let startX=0;
 
 function abrirReel(tipo){
-
 history.replaceState(null,null,"#"+tipo);
-
 tipoActual=tipo;
 reelImgs=reels[tipo];
-
 document.getElementById("reelTitulo").innerText=tipo.toUpperCase();
 document.getElementById("reel").style.display="flex";
-
 reelIndex=0;
 actualizar();
 animar();
-
 intervalo=setInterval(next,3000);
 }
 
 function actualizar(){
-
 const img=document.getElementById("reelImg");
 const video=document.getElementById("reelVideo");
-
 let archivo=reelImgs[reelIndex];
 
 if(archivo.endsWith(".mp4")){
-
 img.style.display="none";
 video.style.display="block";
 video.src=archivo;
 video.play();
-
 }else{
-
 video.pause();
 video.style.display="none";
 img.style.display="block";
 img.src=archivo;
-
 }
 
 document.getElementById("reelNum").innerText=(reelIndex+1)+" / "+reelImgs.length;
-
 }
 
 function next(){
@@ -564,7 +543,6 @@ function animar(){
 const bar=document.getElementById("progressBar");
 bar.style.transition="none";
 bar.style.width="0%";
-
 setTimeout(()=>{
 bar.style.transition="width 3s linear";
 bar.style.width="100%";
@@ -578,7 +556,6 @@ startX=e.touches[0].clientX;
 });
 
 img.addEventListener("touchend",(e)=>{
-
 let endX=e.changedTouches[0].clientX;
 
 if(startX-endX>50) next();
@@ -589,7 +566,6 @@ if(reelIndex<0) reelIndex=reelImgs.length-1;
 actualizar();
 animar();
 }
-
 });
 
 img.addEventListener("click",cerrarReel);
@@ -599,21 +575,13 @@ clearInterval(intervalo);
 document.getElementById("reel").style.display="none";
 }
 
-/* LINKS DIRECTOS */
-
 window.onload=function(){
-
 let hash=window.location.hash.replace("#","");
-
 if(reels[hash]) abrirReel(hash);
-
 if(hash.startsWith("imagen-")){
 verImagen(hash.replace("imagen-",""));
 }
-
 };
-
-/* COMPARTIR */
 
 function compartirReel(){
 const url=window.location.origin+window.location.pathname+"#"+tipoActual;
