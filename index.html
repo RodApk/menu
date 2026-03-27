@@ -139,6 +139,17 @@ font-weight:600;
 cursor:pointer;
 }
 
+.pedir-btn{
+margin-left:10px;
+background:#25D366;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:6px;
+cursor:pointer;
+font-size:12px;
+}
+
 .modal{
 display:none;
 position:fixed;
@@ -272,7 +283,7 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 </div>
 
 <div class="promocion">
-🎉 PROMOCIÓN DEL DÍA: En cualquier compra llévate una mezcalina gratis (solo en compra en el local)
+💧 PROMOCIÓN: En la compra de cualquier comida o antojitos dentro del local el agua es GRATIS
 </div>
 
 <div class="section">
@@ -287,7 +298,10 @@ Picadillo de res a la mexicana
 <small>(acompañado de espagueti y tortillas)</small>
 </div>
 </div>
+<div>
 <span>$90</span>
+<button class="pedir-btn" onclick="pedirProducto('Picadillo de res')">PEDIR</button>
+</div>
 </div>
 
 <div class="menu-item">
@@ -298,7 +312,10 @@ Fajitas de res
 <small>(acompañadas de tortillas)</small>
 </div>
 </div>
+<div>
 <span>$90</span>
+<button class="pedir-btn" onclick="pedirProducto('Fajitas de res')">PEDIR</button>
+</div>
 </div>
 
 <div class="subtitulo">ANTOJITOS</div>
@@ -311,7 +328,10 @@ Hot Dogs gratinados
 <small>(salchicha, jamón, quesillo)</small>
 </div>
 </div>
+<div>
 <span>$45</span>
+<button class="pedir-btn" onclick="pedirProducto('Hot Dogs gratinados')">PEDIR</button>
+</div>
 </div>
 
 <div class="menu-item">
@@ -322,7 +342,10 @@ Sincronizadas
 <small>(jamón, salchicha, queso manchego, quesillo)</small>
 </div>
 </div>
+<div>
 <span>$45</span>
+<button class="pedir-btn" onclick="pedirProducto('Sincronizadas')">PEDIR</button>
+</div>
 </div>
 
 <div class="menu-item">
@@ -333,7 +356,10 @@ Quesadillas de flor de calabaza
 <small>(con champiñones) — Solo viernes, sábado y domingo</small>
 </div>
 </div>
-<span>$35 c/u</span>
+<div>
+<span>$35</span>
+<button class="pedir-btn" onclick="pedirProducto('Quesadillas de flor')">PEDIR</button>
+</div>
 </div>
 
 <div class="menu-item">
@@ -344,7 +370,10 @@ Tlayuda especial
 <small>(cecina, chorizo y quesillo)</small>
 </div>
 </div>
+<div>
 <span>$90</span>
+<button class="pedir-btn" onclick="pedirProducto('Tlayuda especial')">PEDIR</button>
+</div>
 </div>
 
 <div class="menu-item">
@@ -352,7 +381,10 @@ Tlayuda especial
 <img class="product-img" src="TlayudaDoble.jpg" onclick="verImagen('TlayudaDoble.jpg')">
 <div class="menu-text">Tlayuda doble</div>
 </div>
+<div>
 <span>$80</span>
+<button class="pedir-btn" onclick="pedirProducto('Tlayuda doble')">PEDIR</button>
+</div>
 </div>
 
 <div class="menu-item">
@@ -363,7 +395,10 @@ Picaditas
 <small>(cecina, quesillo y chorizo)</small>
 </div>
 </div>
-<span>$20 c/u</span>
+<div>
+<span>$20</span>
+<button class="pedir-btn" onclick="pedirProducto('Picaditas')">PEDIR</button>
+</div>
 </div>
 
 <div class="menu-item">
@@ -374,7 +409,10 @@ Empanadas al comal
 <small>Solo viernes, sábado y domingo</small>
 </div>
 </div>
-<span>$20 c/u</span>
+<div>
+<span>$20</span>
+<button class="pedir-btn" onclick="pedirProducto('Empanadas al comal')">PEDIR</button>
+</div>
 </div>
 
 <div class="subtitulo">BEBIDAS</div>
@@ -382,206 +420,46 @@ Empanadas al comal
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="AguaJamaica.jpg" onclick="verImagen('AguaJamaica.jpg')">
-<div class="menu-text">Agua de horchata / jamaica</div>
+<div class="menu-text">
+Agua de horchata / jamaica / tamarindo <span class="etiqueta promo">PROMO</span>
 </div>
-<span>$15 medio / $25 litro</span>
+</div>
+<div>
+<span>$15 / $25</span>
+<button class="pedir-btn" onclick="pedirProducto('Agua')">PEDIR</button>
+</div>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="Mezcalina.jpeg" onclick="verImagen('Mezcalina.jpeg')">
-<div class="menu-text">Mezcalina de nanche <span class="etiqueta promo">PROMO</span></div>
+<div class="menu-text">Mezcalina de nanche</div>
 </div>
+<div>
 <span>$50</span>
+<button class="pedir-btn" onclick="pedirProducto('Mezcalina de nanche')">PEDIR</button>
+</div>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="MezcalinaFresa.jpg" onclick="verImagen('MezcalinaFresa.jpg')">
-<div class="menu-text">Mezcalina de fresa <span class="etiqueta promo">PROMO</span></div>
+<div class="menu-text">Mezcalina de fresa</div>
 </div>
+<div>
 <span>$50</span>
+<button class="pedir-btn" onclick="pedirProducto('Mezcalina de fresa')">PEDIR</button>
 </div>
-
-<div class="servicio">
-🚚 CONTAMOS CON SERVICIO A DOMICILIO<br><br>
-📲 PEDIDOS:<br>
-953 154 3729 | 56 3475 4554
-</div>
-
-<div class="share-menu" onclick="compartirMenu()">
-📲 COMPARTIR MENÚ
 </div>
 
 </div>
-
-<footer>
-Agradecemos su preferencia
-</footer>
-
-</div>
-
-<!-- MODAL -->
-<div id="modalImagen" class="modal" onclick="cerrarImagen()">
-<div class="modal-texto">CLICK PARA CERRAR</div>
-<img id="imagenProducto">
-</div>
-
-<!-- REEL -->
-<div id="reel" class="reel">
-
-<div class="modal-texto">CLICK PARA CERRAR</div>
-
-<div class="reel-text">
-<span id="reelTitulo"></span><br>
-<span style="font-size:13px;color:#ccc;">Desliza para ver más</span>
-</div>
-
-<div class="reel-container">
-
-<div class="progress">
-<div class="progress-bar" id="progressBar"></div>
-</div>
-
-<img id="reelImg">
-<video id="reelVideo" autoplay muted loop playsinline style="display:none"></video>
-
-</div>
-
-<div class="reel-indicador">
-<span id="reelNum"></span>
-</div>
-
-<div class="share" onclick="compartirReel()">
-📲 COMPARTIR POR WHATSAPP
-</div>
-
-</div>
-
-<a class="whatsapp-btn" href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-</a>
 
 <script>
 
-const opciones={weekday:'long',year:'numeric',month:'long',day:'numeric'};
-document.getElementById("fecha").innerText=new Date().toLocaleDateString('es-MX',opciones);
-
-function verImagen(src){
-history.replaceState(null,null,"#imagen-"+src);
-document.getElementById("modalImagen").style.display="flex";
-document.getElementById("imagenProducto").src=src;
-}
-
-function cerrarImagen(){
-document.getElementById("modalImagen").style.display="none";
-}
-
-const reels={
-hotdogs:["HotDogs.jpeg","HotDogs2.jpg","HotDogs3.jpg"],
-sincronizadas:["Sincronizada.jpg","Sincronizada2.jpg","Sincronizada3.jpg"],
-picaditas:["Picaditas.jpg","Picaditas3.jpg","PicaditasHuevo.jpg"],
-mojarra:["IMG-20260314-WA0001.jpg","CaldoPescado2.jpg"],
-flor:["Flor.jpg","Flor2.jpg","Flor3.jpg"]
-};
-
-let tipoActual="";
-let reelImgs=[];
-let reelIndex=0;
-let intervalo;
-let startX=0;
-
-function abrirReel(tipo){
-history.replaceState(null,null,"#"+tipo);
-tipoActual=tipo;
-reelImgs=reels[tipo];
-document.getElementById("reelTitulo").innerText=tipo.toUpperCase();
-document.getElementById("reel").style.display="flex";
-reelIndex=0;
-actualizar();
-animar();
-intervalo=setInterval(next,3000);
-}
-
-function actualizar(){
-const img=document.getElementById("reelImg");
-const video=document.getElementById("reelVideo");
-let archivo=reelImgs[reelIndex];
-
-if(archivo.endsWith(".mp4")){
-img.style.display="none";
-video.style.display="block";
-video.src=archivo;
-video.play();
-}else{
-video.pause();
-video.style.display="none";
-img.style.display="block";
-img.src=archivo;
-}
-
-document.getElementById("reelNum").innerText=(reelIndex+1)+" / "+reelImgs.length;
-}
-
-function next(){
-reelIndex++;
-if(reelIndex>=reelImgs.length) reelIndex=0;
-actualizar();
-animar();
-}
-
-function animar(){
-const bar=document.getElementById("progressBar");
-bar.style.transition="none";
-bar.style.width="0%";
-setTimeout(()=>{
-bar.style.transition="width 3s linear";
-bar.style.width="100%";
-},50);
-}
-
-const img=document.getElementById("reelImg");
-
-img.addEventListener("touchstart",(e)=>{
-startX=e.touches[0].clientX;
-});
-
-img.addEventListener("touchend",(e)=>{
-let endX=e.changedTouches[0].clientX;
-
-if(startX-endX>50) next();
-
-if(endX-startX>50){
-reelIndex--;
-if(reelIndex<0) reelIndex=reelImgs.length-1;
-actualizar();
-animar();
-}
-});
-
-img.addEventListener("click",cerrarReel);
-
-function cerrarReel(){
-clearInterval(intervalo);
-document.getElementById("reel").style.display="none";
-}
-
-window.onload=function(){
-let hash=window.location.hash.replace("#","");
-if(reels[hash]) abrirReel(hash);
-if(hash.startsWith("imagen-")){
-verImagen(hash.replace("imagen-",""));
-}
-};
-
-function compartirReel(){
-const url=window.location.origin+window.location.pathname+"#"+tipoActual;
-window.open("https://wa.me/?text="+encodeURIComponent(url));
-}
-
-function compartirMenu(){
-const url=window.location.href;
-window.open("https://wa.me/?text="+encodeURIComponent(url));
+function pedirProducto(nombre){
+let mensaje="Hola, quiero pedir: "+nombre;
+let numero="5219531543729";
+window.open("https://wa.me/"+numero+"?text="+encodeURIComponent(mensaje));
 }
 
 </script>
