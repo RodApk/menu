@@ -106,19 +106,7 @@ color:#bbb;
 font-size:13px;
 }
 
-/* BOTONES */
-.btn{
-margin-left:6px;
-padding:5px 8px;
-border:none;
-border-radius:6px;
-cursor:pointer;
-font-size:11px;
-}
-
-.pedir{background:#25D366;color:white;}
-.agregar{background:#ffd76a;color:black;}
-
+/* MODAL */
 .modal{
 display:none;
 position:fixed;
@@ -126,7 +114,7 @@ left:0;
 top:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.9);
+background:rgba(0,0,0,0.95);
 justify-content:center;
 align-items:center;
 z-index:200;
@@ -136,17 +124,26 @@ z-index:200;
 max-width:90%;
 max-height:80%;
 border-radius:10px;
+transition:transform 0.2s ease;
 }
 
-.carrito{
+/* BOTÓN WHATS */
+.whatsapp-btn{
 position:fixed;
-bottom:20px;
-right:20px;
-background:#222;
-padding:12px;
-border-radius:10px;
-width:230px;
-box-shadow:0 0 10px black;
+bottom:25px;
+right:25px;
+width:60px;
+height:60px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+
+.whatsapp-btn img{
+width:34px;
 }
 
 </style>
@@ -157,7 +154,7 @@ box-shadow:0 0 10px black;
 <div class="container">
 
 <header>
-<img src="logo-las-dos-marias.png" onclick="verImagen('MenuGeneral.jpg')">
+<img src="./logo-las-dos-marias.png" onclick="verImagen('./MenuGeneral.jpg')">
 <div class="header-text">
 <div class="nombre">LAS DOS MARÍAS</div>
 <p id="fecha"></p>
@@ -174,181 +171,112 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 
 <div class="section">
 
-<!-- ================= COMIDA ================= -->
 <div class="subtitulo">COMIDA DEL DÍA</div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="Picadillo.jpeg" onclick="verImagen('Picadillo.jpeg')">
+<img class="product-img" src="./Picadillo.jpeg" onclick="verImagen('./Picadillo.jpeg')">
 <div class="menu-text">
 Picadillo de res a la mexicana
 <small>(acompañado de espagueti y tortillas)</small>
 </div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Picadillo')">PEDIR</button>
-<button class="btn agregar" onclick="event.stopPropagation(); agregar('Picadillo',90)">+</button>
-
 </div>
 <span>$90</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="FajitasRes.jpg" onclick="verImagen('FajitasRes.jpg')">
+<img class="product-img" src="./FajitasRes.jpg" onclick="verImagen('./FajitasRes.jpg')">
 <div class="menu-text">
 Fajitas de res
 <small>(acompañadas de tortillas)</small>
 </div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Fajitas')">PEDIR</button>
-<button class="btn agregar" onclick="event.stopPropagation(); agregar('Fajitas',90)">+</button>
-
 </div>
 <span>$90</span>
 </div>
 
-<!-- ================= ANTOJITOS ================= -->
 <div class="subtitulo">ANTOJITOS</div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="HotDogs.jpeg" onclick="abrirReel('hotdogs')">
-<div class="menu-text">
-Hot Dogs gratinados
-<small>(salchicha, jamón, quesillo)</small>
-</div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Hot Dogs')">PEDIR</button>
-<button class="btn agregar" onclick="event.stopPropagation(); agregar('Hot Dogs',45)">+</button>
-
+<img class="product-img" src="./HotDogs.jpeg" onclick="abrirReel('hotdogs')">
+<div class="menu-text">Hot Dogs gratinados</div>
 </div>
 <span>$45</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="Sincronizada.jpg" onclick="abrirReel('sincronizadas')">
-<div class="menu-text">
-Sincronizadas
-<small>(jamón, salchicha, queso manchego, quesillo)</small>
-</div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Sincronizadas')">PEDIR</button>
-<button class="btn agregar" onclick="event.stopPropagation(); agregar('Sincronizadas',45)">+</button>
-
+<img class="product-img" src="./Sincronizada.jpg" onclick="abrirReel('sincronizadas')">
+<div class="menu-text">Sincronizadas</div>
 </div>
 <span>$45</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="Flor.jpg" onclick="abrirReel('flor')">
-<div class="menu-text">
-Quesadillas de flor de calabaza
-<small>(con champiñones) — Solo viernes, sábado y domingo</small>
+<img class="product-img" src="./Flor.jpg" onclick="abrirReel('flor')">
+<div class="menu-text">Quesadillas de flor</div>
 </div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Quesadillas')">PEDIR</button>
-<button class="btn agregar" onclick="event.stopPropagation(); agregar('Quesadillas',35)">+</button>
-
-</div>
-<span>$35 c/u</span>
+<span>$35</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="TlayudaEspecial.jpg" onclick="verImagen('TlayudaEspecial.jpg')">
-<div class="menu-text">
-Tlayuda especial
-<small>(cecina, chorizo y quesillo)</small>
-</div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Tlayuda especial')">PEDIR</button>
-<button class="btn agregar" onclick="event.stopPropagation(); agregar('Tlayuda especial',90)">+</button>
-
+<img class="product-img" src="./TlayudaEspecial.jpg" onclick="verImagen('./TlayudaEspecial.jpg')">
+<div class="menu-text">Tlayuda especial</div>
 </div>
 <span>$90</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="TlayudaDoble.jpg" onclick="verImagen('TlayudaDoble.jpg')">
+<img class="product-img" src="./TlayudaDoble.jpg" onclick="verImagen('./TlayudaDoble.jpg')">
 <div class="menu-text">Tlayuda doble</div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Tlayuda doble')">PEDIR</button>
-<button class="btn agregar" onclick="event.stopPropagation(); agregar('Tlayuda doble',80)">+</button>
-
 </div>
 <span>$80</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="Picaditas.jpg" onclick="abrirReel('picaditas')">
-<div class="menu-text">
-Picaditas
-<small>(cecina, quesillo y chorizo)</small>
+<img class="product-img" src="./Picaditas.jpg" onclick="abrirReel('picaditas')">
+<div class="menu-text">Picaditas</div>
 </div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Picaditas')">PEDIR</button>
-<button class="btn agregar" onclick="event.stopPropagation(); agregar('Picaditas',20)">+</button>
-
-</div>
-<span>$20 c/u</span>
+<span>$20</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="EmpanadaComal.jpg" onclick="verImagen('EmpanadaComal.jpg')">
-<div class="menu-text">
-Empanadas al comal
-<small>Solo viernes, sábado y domingo</small>
+<img class="product-img" src="./EmpanadaComal.jpg" onclick="verImagen('./EmpanadaComal.jpg')">
+<div class="menu-text">Empanadas al comal</div>
+</div>
+<span>$20</span>
 </div>
 
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Empanadas')">PEDIR</button>
-<button class="btn agregar" onclick="event.stopPropagation(); agregar('Empanadas',20)">+</button>
-
-</div>
-<span>$20 c/u</span>
-</div>
-
-<!-- ================= BEBIDAS ================= -->
 <div class="subtitulo">BEBIDAS</div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="AguaJamaica.jpg" onclick="verImagen('AguaJamaica.jpg')">
+<img class="product-img" src="./AguaJamaica.jpg" onclick="verImagen('./AguaJamaica.jpg')">
 <div class="menu-text">
 Agua de horchata / jamaica / tamarindo
 </div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Agua')">PEDIR</button>
-<button class="btn agregar" onclick="event.stopPropagation(); agregar('Agua',15)">+</button>
-
 </div>
-<span>$15 medio / $25 litro</span>
+<span>$15 / $25</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="Mezcalina.jpeg" onclick="verImagen('Mezcalina.jpeg')">
+<img class="product-img" src="./Mezcalina.jpeg" onclick="verImagen('./Mezcalina.jpeg')">
 <div class="menu-text">Mezcalina de nanche</div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Mezcalina nanche')">PEDIR</button>
-<button class="btn agregar" onclick="event.stopPropagation(); agregar('Mezcalina nanche',50)">+</button>
-
 </div>
 <span>$50</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="MezcalinaFresa.jpg" onclick="verImagen('MezcalinaFresa.jpg')">
+<img class="product-img" src="./MezcalinaFresa.jpg" onclick="verImagen('./MezcalinaFresa.jpg')">
 <div class="menu-text">Mezcalina de fresa</div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Mezcalina fresa')">PEDIR</button>
-<button class="btn agregar" onclick="event.stopPropagation(); agregar('Mezcalina fresa',50)">+</button>
-
 </div>
 <span>$50</span>
 </div>
@@ -361,60 +289,66 @@ Agua de horchata / jamaica / tamarindo
 <img id="imgModal">
 </div>
 
-<!-- CARRITO -->
-<div class="carrito">
-<div id="lista"></div>
-<div>Total: $<span id="total">0</span></div>
-<button onclick="enviarPedido()">Enviar pedido</button>
-</div>
+<!-- BOTÓN WHATS -->
+<a class="whatsapp-btn" href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
 
 <script>
 
 const opciones={weekday:'long',year:'numeric',month:'long',day:'numeric'};
 document.getElementById("fecha").innerText=new Date().toLocaleDateString('es-MX',opciones);
 
-let carrito=[];
+/* MODAL + ZOOM */
+let escala = 1;
 
 function verImagen(src){
-document.getElementById("modal").style.display="flex";
-document.getElementById("imgModal").src=src;
+const modal = document.getElementById("modal");
+const img = document.getElementById("imgModal");
+
+img.src = src;
+escala = 1;
+img.style.transform = "scale(1)";
+modal.style.display = "flex";
 }
 
 function cerrarModal(e){
-if(e.target.id==="modal"){
+if(e.target.id==="modal" || e.target.id==="imgModal"){
 document.getElementById("modal").style.display="none";
 }
 }
 
-function pedir(nombre){
-window.open("https://wa.me/5219531543729?text="+encodeURIComponent("Quiero pedir "+nombre));
-}
-
-function agregar(nombre,precio){
-let item=carrito.find(x=>x.nombre===nombre);
-if(item){item.cantidad++;}
-else{carrito.push({nombre,precio,cantidad:1});}
-actualizarCarrito();
-}
-
-function actualizarCarrito(){
-let total=0;
-let html="";
-carrito.forEach(i=>{
-total+=i.precio*i.cantidad;
-html+=i.nombre+" x"+i.cantidad+"<br>";
+/* ZOOM con rueda */
+document.getElementById("imgModal").addEventListener("wheel", function(e){
+e.preventDefault();
+escala += e.deltaY * -0.001;
+escala = Math.min(Math.max(.5, escala), 3);
+this.style.transform = "scale(" + escala + ")";
 });
-document.getElementById("lista").innerHTML=html;
-document.getElementById("total").innerText=total;
-}
 
-function enviarPedido(){
-let msg="Pedido:%0A";
-carrito.forEach(i=>{
-msg+=i.nombre+" x"+i.cantidad+"%0A";
+/* ZOOM táctil */
+let inicialDist = null;
+
+document.getElementById("imgModal").addEventListener("touchmove", function(e){
+if(e.touches.length===2){
+let dx = e.touches[0].clientX - e.touches[1].clientX;
+let dy = e.touches[0].clientY - e.touches[1].clientY;
+let distancia = Math.sqrt(dx*dx + dy*dy);
+
+if(!inicialDist) inicialDist = distancia;
+
+escala = distancia / inicialDist;
+this.style.transform = "scale(" + escala + ")";
+}
 });
-msg+="Total: $"+document.getElementById("total").innerText;
-window.open("https://wa.me/5219531543729?text="+msg);
+
+document.getElementById("imgModal").addEventListener("touchend", function(){
+inicialDist = null;
+});
+
+/* REELS (sin tocar tu lógica original base mínima) */
+function abrirReel(tipo){
+alert("Aquí va tu reel original: "+tipo);
 }
 
 </script>
