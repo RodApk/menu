@@ -8,24 +8,147 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:'Montserrat',sans-serif;background:#1a1a1a;color:#eaeaea;}
-.container{max-width:900px;margin:50px auto;background:#222;border-radius:18px;overflow:hidden;}
-header{display:flex;align-items:center;gap:20px;padding:35px;background:#444;}
-header img{width:110px;cursor:pointer;}
-.nombre{font-family:'Playfair Display';font-size:2.4em;color:#ffd76a;}
-.menu-item{display:flex;justify-content:space-between;align-items:center;padding:12px;border-bottom:1px solid #333;}
-.item-left{display:flex;align-items:center;gap:10px;}
-.product-img{width:45px;height:45px;border-radius:50%;cursor:pointer;border:2px solid #ffd76a;}
-.btn{margin-left:5px;border:none;padding:6px;border-radius:6px;cursor:pointer;}
+
+body{
+margin:0;
+font-family:'Montserrat', sans-serif;
+background:#1a1a1a;
+color:#eaeaea;
+}
+
+.container{
+max-width:900px;
+margin:50px auto;
+background:#222;
+border-radius:18px;
+box-shadow:0 20px 50px rgba(0,0,0,0.6);
+overflow:hidden;
+}
+
+header{
+display:flex;
+align-items:center;
+gap:20px;
+padding:35px;
+background:linear-gradient(135deg,#3a3a3a,#555);
+}
+
+header img{
+width:110px;
+cursor:pointer;
+}
+
+.header-text{
+flex:1;
+text-align:center;
+}
+
+.nombre{
+font-family:'Playfair Display', serif;
+font-size:2.6em;
+letter-spacing:4px;
+color:#fff4c2;
+}
+
+.horario{
+text-align:center;
+padding:14px;
+background:#181818;
+color:#ffd76a;
+}
+
+.promocion{
+text-align:center;
+background:#2d2d2d;
+color:#ffd76a;
+padding:12px;
+font-weight:600;
+}
+
+.section{
+padding:35px;
+}
+
+.subtitulo{
+margin-top:30px;
+margin-bottom:10px;
+color:#ffd76a;
+border-bottom:1px solid #444;
+padding-bottom:6px;
+}
+
+.menu-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 0;
+border-bottom:1px solid #333;
+}
+
+.item-left{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.product-img{
+width:45px;
+height:45px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid #ffd76a;
+cursor:pointer;
+}
+
+.menu-text small{
+display:block;
+color:#bbb;
+font-size:13px;
+}
+
+/* BOTONES */
+.btn{
+margin-left:6px;
+padding:6px 10px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:12px;
+}
+
 .pedir{background:#25D366;color:white;}
-.add{background:#ffd76a;color:black;}
+.agregar{background:#ffd76a;color:black;}
 
-.modal{display:none;position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;}
-.modal img{max-width:90%;}
+.modal{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+z-index:200;
+}
 
-.reel{display:none;position:fixed;width:100%;height:100%;background:black;justify-content:center;align-items:center;flex-direction:column;}
+.modal img{
+max-width:90%;
+max-height:80%;
+border-radius:10px;
+}
 
-.carrito{position:fixed;bottom:10px;left:10px;background:#222;padding:10px;border-radius:10px;}
+.carrito{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#222;
+padding:12px;
+border-radius:10px;
+width:230px;
+box-shadow:0 0 10px black;
+}
+
 </style>
 </head>
 
@@ -35,18 +158,33 @@ header img{width:110px;cursor:pointer;}
 
 <header>
 <img src="logo-las-dos-marias.png" onclick="verImagen('MenuGeneral.jpg')">
+<div class="header-text">
 <div class="nombre">LAS DOS MARÍAS</div>
+</div>
 </header>
 
-<!-- PRODUCTOS COMPLETOS (NO ELIMINADOS) -->
+<div class="horario">
+HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
+</div>
+
+<div class="promocion">
+💧 PROMOCIÓN: En consumo local el agua es GRATIS
+</div>
+
+<div class="section">
+
+<div class="subtitulo">COMIDA DEL DÍA</div>
 
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="Picadillo.jpeg" onclick="verImagen('Picadillo.jpeg')">
-<div>Picadillo de res a la mexicana</div>
+<div class="menu-text">
+Picadillo de res a la mexicana
+<small>(acompañado de espagueti y tortillas)</small>
+</div>
 
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Picadillo de res')">PEDIR</button>
-<button class="btn add" onclick="event.stopPropagation(); agregar('Picadillo',90)">+</button>
+<button class="btn pedir" onclick="event.stopPropagation(); pedir('Picadillo')">PEDIR</button>
+<button class="btn agregar" onclick="event.stopPropagation(); agregar('Picadillo',90)">+</button>
 
 </div>
 <span>$90</span>
@@ -55,73 +193,80 @@ header img{width:110px;cursor:pointer;}
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="FajitasRes.jpg" onclick="verImagen('FajitasRes.jpg')">
-<div>Fajitas de res</div>
+<div class="menu-text">
+Fajitas de res
+<small>(acompañadas de tortillas)</small>
+</div>
 
 <button class="btn pedir" onclick="event.stopPropagation(); pedir('Fajitas')">PEDIR</button>
-<button class="btn add" onclick="event.stopPropagation(); agregar('Fajitas',90)">+</button>
+<button class="btn agregar" onclick="event.stopPropagation(); agregar('Fajitas',90)">+</button>
 
 </div>
 <span>$90</span>
 </div>
 
-<div class="menu-item">
-<div class="item-left">
-<img class="product-img" src="HotDogs.jpeg" onclick="abrirReel('hotdogs')">
-<div>Hot Dogs gratinados</div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Hot Dogs')">PEDIR</button>
-<button class="btn add" onclick="event.stopPropagation(); agregar('Hot Dogs',45)">+</button>
-
-</div>
-<span>$45</span>
-</div>
+<div class="subtitulo">ANTOJITOS</div>
 
 <div class="menu-item">
 <div class="item-left">
-<img class="product-img" src="Sincronizada.jpg" onclick="abrirReel('sincronizadas')">
-<div>Sincronizadas</div>
+<img class="product-img" src="EmpanadaComal.jpg" onclick="verImagen('EmpanadaComal.jpg')">
+<div class="menu-text">Empanadas al comal</div>
 
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Sincronizadas')">PEDIR</button>
-<button class="btn add" onclick="event.stopPropagation(); agregar('Sincronizadas',45)">+</button>
-
-</div>
-<span>$45</span>
-</div>
-
-<div class="menu-item">
-<div class="item-left">
-<img class="product-img" src="TlayudaEspecial.jpg" onclick="verImagen('TlayudaEspecial.jpg')">
-<div>Tlayuda especial</div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Tlayuda especial')">PEDIR</button>
-<button class="btn add" onclick="event.stopPropagation(); agregar('Tlayuda especial',90)">+</button>
+<button class="btn pedir" onclick="event.stopPropagation(); pedir('Empanadas')">PEDIR</button>
+<button class="btn agregar" onclick="event.stopPropagation(); agregar('Empanadas',20)">+</button>
 
 </div>
-<span>$90</span>
+<span>$20</span>
 </div>
 
+<div class="subtitulo">BEBIDAS</div>
+
+<!-- 🔥 AQUÍ ESTÁ CORRECTO COMO LO PEDISTE -->
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="AguaJamaica.jpg" onclick="verImagen('AguaJamaica.jpg')">
-<div>Agua (horchata/jamaica/tamarindo)</div>
-
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Agua')">PEDIR</button>
-<button class="btn add" onclick="event.stopPropagation(); agregar('Agua',15)">+</button>
-
-</div>
-<span>$15</span>
+<div class="menu-text">
+Agua de horchata / jamaica / tamarindo
 </div>
 
+<button class="btn pedir" onclick="event.stopPropagation(); pedir('Agua (sabor a elegir)')">PEDIR</button>
+<button class="btn agregar" onclick="event.stopPropagation(); agregar('Agua',15)">+</button>
+
+</div>
+<span>$15 medio / $25 litro</span>
+</div>
+
+<!-- MEZCALINAS -->
+<div class="menu-item">
+<div class="item-left">
+<img class="product-img" src="Mezcalina.jpeg" onclick="verImagen('Mezcalina.jpeg')">
+<div class="menu-text">Mezcalina de nanche</div>
+
+<button class="btn pedir" onclick="event.stopPropagation(); pedir('Mezcalina nanche')">PEDIR</button>
+<button class="btn agregar" onclick="event.stopPropagation(); agregar('Mezcalina nanche',50)">+</button>
+
+</div>
+<span>$50</span>
+</div>
+
+<div class="menu-item">
+<div class="item-left">
+<img class="product-img" src="MezcalinaFresa.jpg" onclick="verImagen('MezcalinaFresa.jpg')">
+<div class="menu-text">Mezcalina de fresa</div>
+
+<button class="btn pedir" onclick="event.stopPropagation(); pedir('Mezcalina fresa')">PEDIR</button>
+<button class="btn agregar" onclick="event.stopPropagation(); agregar('Mezcalina fresa',50)">+</button>
+
+</div>
+<span>$50</span>
+</div>
+
+</div>
 </div>
 
 <!-- MODAL -->
 <div id="modal" class="modal" onclick="cerrarModal(event)">
 <img id="imgModal">
-</div>
-
-<!-- REEL -->
-<div id="reel" class="reel" onclick="cerrarReel()">
-<img id="reelImg">
 </div>
 
 <!-- CARRITO -->
@@ -134,7 +279,6 @@ header img{width:110px;cursor:pointer;}
 <script>
 
 let carrito=[];
-let total=0;
 
 function verImagen(src){
 document.getElementById("modal").style.display="flex";
@@ -147,33 +291,25 @@ document.getElementById("modal").style.display="none";
 }
 }
 
-function abrirReel(tipo){
-document.getElementById("reel").style.display="flex";
-document.getElementById("reelImg").src="HotDogs.jpeg";
-}
-
-function cerrarReel(){
-document.getElementById("reel").style.display="none";
-}
-
 function pedir(nombre){
 window.open("https://wa.me/5219531543729?text="+encodeURIComponent("Quiero pedir "+nombre));
 }
 
 function agregar(nombre,precio){
 let item=carrito.find(x=>x.nombre===nombre);
-if(item){item.cantidad++;}else{carrito.push({nombre,precio,cantidad:1});}
+if(item){item.cantidad++;}
+else{carrito.push({nombre,precio,cantidad:1});}
 actualizar();
 }
 
 function actualizar(){
-let lista="";
-total=0;
+let total=0;
+let html="";
 carrito.forEach(i=>{
 total+=i.precio*i.cantidad;
-lista+=i.nombre+" x"+i.cantidad+"<br>";
+html+=i.nombre+" x"+i.cantidad+"<br>";
 });
-document.getElementById("lista").innerHTML=lista;
+document.getElementById("lista").innerHTML=html;
 document.getElementById("total").innerText=total;
 }
 
@@ -182,7 +318,7 @@ let msg="Pedido:%0A";
 carrito.forEach(i=>{
 msg+=i.nombre+" x"+i.cantidad+"%0A";
 });
-msg+="Total: $"+total;
+msg+="Total: $"+document.getElementById("total").innerText;
 window.open("https://wa.me/5219531543729?text="+msg);
 }
 
