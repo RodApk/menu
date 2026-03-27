@@ -109,11 +109,11 @@ font-size:13px;
 /* BOTONES */
 .btn{
 margin-left:6px;
-padding:6px 10px;
+padding:5px 8px;
 border:none;
 border-radius:6px;
 cursor:pointer;
-font-size:12px;
+font-size:11px;
 }
 
 .pedir{background:#25D366;color:white;}
@@ -160,6 +160,7 @@ box-shadow:0 0 10px black;
 <img src="logo-las-dos-marias.png" onclick="verImagen('MenuGeneral.jpg')">
 <div class="header-text">
 <div class="nombre">LAS DOS MARÍAS</div>
+<p id="fecha"></p>
 </div>
 </header>
 
@@ -173,6 +174,7 @@ HORARIO DE SERVICIO: 10:00 AM – 10:00 PM
 
 <div class="section">
 
+<!-- ================= COMIDA ================= -->
 <div class="subtitulo">COMIDA DEL DÍA</div>
 
 <div class="menu-item">
@@ -205,23 +207,114 @@ Fajitas de res
 <span>$90</span>
 </div>
 
+<!-- ================= ANTOJITOS ================= -->
 <div class="subtitulo">ANTOJITOS</div>
 
 <div class="menu-item">
 <div class="item-left">
+<img class="product-img" src="HotDogs.jpeg" onclick="abrirReel('hotdogs')">
+<div class="menu-text">
+Hot Dogs gratinados
+<small>(salchicha, jamón, quesillo)</small>
+</div>
+
+<button class="btn pedir" onclick="event.stopPropagation(); pedir('Hot Dogs')">PEDIR</button>
+<button class="btn agregar" onclick="event.stopPropagation(); agregar('Hot Dogs',45)">+</button>
+
+</div>
+<span>$45</span>
+</div>
+
+<div class="menu-item">
+<div class="item-left">
+<img class="product-img" src="Sincronizada.jpg" onclick="abrirReel('sincronizadas')">
+<div class="menu-text">
+Sincronizadas
+<small>(jamón, salchicha, queso manchego, quesillo)</small>
+</div>
+
+<button class="btn pedir" onclick="event.stopPropagation(); pedir('Sincronizadas')">PEDIR</button>
+<button class="btn agregar" onclick="event.stopPropagation(); agregar('Sincronizadas',45)">+</button>
+
+</div>
+<span>$45</span>
+</div>
+
+<div class="menu-item">
+<div class="item-left">
+<img class="product-img" src="Flor.jpg" onclick="abrirReel('flor')">
+<div class="menu-text">
+Quesadillas de flor de calabaza
+<small>(con champiñones) — Solo viernes, sábado y domingo</small>
+</div>
+
+<button class="btn pedir" onclick="event.stopPropagation(); pedir('Quesadillas')">PEDIR</button>
+<button class="btn agregar" onclick="event.stopPropagation(); agregar('Quesadillas',35)">+</button>
+
+</div>
+<span>$35 c/u</span>
+</div>
+
+<div class="menu-item">
+<div class="item-left">
+<img class="product-img" src="TlayudaEspecial.jpg" onclick="verImagen('TlayudaEspecial.jpg')">
+<div class="menu-text">
+Tlayuda especial
+<small>(cecina, chorizo y quesillo)</small>
+</div>
+
+<button class="btn pedir" onclick="event.stopPropagation(); pedir('Tlayuda especial')">PEDIR</button>
+<button class="btn agregar" onclick="event.stopPropagation(); agregar('Tlayuda especial',90)">+</button>
+
+</div>
+<span>$90</span>
+</div>
+
+<div class="menu-item">
+<div class="item-left">
+<img class="product-img" src="TlayudaDoble.jpg" onclick="verImagen('TlayudaDoble.jpg')">
+<div class="menu-text">Tlayuda doble</div>
+
+<button class="btn pedir" onclick="event.stopPropagation(); pedir('Tlayuda doble')">PEDIR</button>
+<button class="btn agregar" onclick="event.stopPropagation(); agregar('Tlayuda doble',80)">+</button>
+
+</div>
+<span>$80</span>
+</div>
+
+<div class="menu-item">
+<div class="item-left">
+<img class="product-img" src="Picaditas.jpg" onclick="abrirReel('picaditas')">
+<div class="menu-text">
+Picaditas
+<small>(cecina, quesillo y chorizo)</small>
+</div>
+
+<button class="btn pedir" onclick="event.stopPropagation(); pedir('Picaditas')">PEDIR</button>
+<button class="btn agregar" onclick="event.stopPropagation(); agregar('Picaditas',20)">+</button>
+
+</div>
+<span>$20 c/u</span>
+</div>
+
+<div class="menu-item">
+<div class="item-left">
 <img class="product-img" src="EmpanadaComal.jpg" onclick="verImagen('EmpanadaComal.jpg')">
-<div class="menu-text">Empanadas al comal</div>
+<div class="menu-text">
+Empanadas al comal
+<small>Solo viernes, sábado y domingo</small>
+</div>
 
 <button class="btn pedir" onclick="event.stopPropagation(); pedir('Empanadas')">PEDIR</button>
 <button class="btn agregar" onclick="event.stopPropagation(); agregar('Empanadas',20)">+</button>
 
 </div>
-<span>$20</span>
+<span>$20 c/u</span>
 </div>
 
+<!-- ================= BEBIDAS ================= -->
 <div class="subtitulo">BEBIDAS</div>
 
-<!-- 🔥 AQUÍ ESTÁ CORRECTO COMO LO PEDISTE -->
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="AguaJamaica.jpg" onclick="verImagen('AguaJamaica.jpg')">
@@ -229,14 +322,13 @@ Fajitas de res
 Agua de horchata / jamaica / tamarindo
 </div>
 
-<button class="btn pedir" onclick="event.stopPropagation(); pedir('Agua (sabor a elegir)')">PEDIR</button>
+<button class="btn pedir" onclick="event.stopPropagation(); pedir('Agua')">PEDIR</button>
 <button class="btn agregar" onclick="event.stopPropagation(); agregar('Agua',15)">+</button>
 
 </div>
 <span>$15 medio / $25 litro</span>
 </div>
 
-<!-- MEZCALINAS -->
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="Mezcalina.jpeg" onclick="verImagen('Mezcalina.jpeg')">
@@ -273,10 +365,13 @@ Agua de horchata / jamaica / tamarindo
 <div class="carrito">
 <div id="lista"></div>
 <div>Total: $<span id="total">0</span></div>
-<button onclick="enviar()">Enviar pedido</button>
+<button onclick="enviarPedido()">Enviar pedido</button>
 </div>
 
 <script>
+
+const opciones={weekday:'long',year:'numeric',month:'long',day:'numeric'};
+document.getElementById("fecha").innerText=new Date().toLocaleDateString('es-MX',opciones);
 
 let carrito=[];
 
@@ -299,10 +394,10 @@ function agregar(nombre,precio){
 let item=carrito.find(x=>x.nombre===nombre);
 if(item){item.cantidad++;}
 else{carrito.push({nombre,precio,cantidad:1});}
-actualizar();
+actualizarCarrito();
 }
 
-function actualizar(){
+function actualizarCarrito(){
 let total=0;
 let html="";
 carrito.forEach(i=>{
@@ -313,7 +408,7 @@ document.getElementById("lista").innerHTML=html;
 document.getElementById("total").innerText=total;
 }
 
-function enviar(){
+function enviarPedido(){
 let msg="Pedido:%0A";
 carrito.forEach(i=>{
 msg+=i.nombre+" x"+i.cantidad+"%0A";
