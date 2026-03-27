@@ -127,7 +127,28 @@ border-radius:10px;
 transition:transform 0.2s ease;
 }
 
-/* BOTÓN WHATS */
+/* REEL */
+.reel{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:black;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:500;
+}
+
+.reel img, video{
+max-width:90%;
+max-height:80%;
+border-radius:10px;
+}
+
+/* WHATS */
 .whatsapp-btn{
 position:fixed;
 bottom:25px;
@@ -200,7 +221,10 @@ Fajitas de res
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="./HotDogs.jpeg" onclick="abrirReel('hotdogs')">
-<div class="menu-text">Hot Dogs gratinados</div>
+<div class="menu-text">
+Hot Dogs gratinados
+<small>(salchicha, jamón, quesillo)</small>
+</div>
 </div>
 <span>$45</span>
 </div>
@@ -208,7 +232,10 @@ Fajitas de res
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="./Sincronizada.jpg" onclick="abrirReel('sincronizadas')">
-<div class="menu-text">Sincronizadas</div>
+<div class="menu-text">
+Sincronizadas
+<small>(jamón, salchicha, queso manchego, quesillo)</small>
+</div>
 </div>
 <span>$45</span>
 </div>
@@ -216,15 +243,21 @@ Fajitas de res
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="./Flor.jpg" onclick="abrirReel('flor')">
-<div class="menu-text">Quesadillas de flor</div>
+<div class="menu-text">
+Quesadillas de flor de calabaza
+<small>(con champiñones) — Solo viernes, sábado y domingo</small>
 </div>
-<span>$35</span>
+</div>
+<span>$35 c/u</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="./TlayudaEspecial.jpg" onclick="verImagen('./TlayudaEspecial.jpg')">
-<div class="menu-text">Tlayuda especial</div>
+<div class="menu-text">
+Tlayuda especial
+<small>(cecina, chorizo y quesillo)</small>
+</div>
 </div>
 <span>$90</span>
 </div>
@@ -240,17 +273,23 @@ Fajitas de res
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="./Picaditas.jpg" onclick="abrirReel('picaditas')">
-<div class="menu-text">Picaditas</div>
+<div class="menu-text">
+Picaditas
+<small>(cecina, quesillo y chorizo)</small>
 </div>
-<span>$20</span>
+</div>
+<span>$20 c/u</span>
 </div>
 
 <div class="menu-item">
 <div class="item-left">
 <img class="product-img" src="./EmpanadaComal.jpg" onclick="verImagen('./EmpanadaComal.jpg')">
-<div class="menu-text">Empanadas al comal</div>
+<div class="menu-text">
+Empanadas al comal
+<small>Solo viernes, sábado y domingo</small>
 </div>
-<span>$20</span>
+</div>
+<span>$20 c/u</span>
 </div>
 
 <div class="subtitulo">BEBIDAS</div>
@@ -262,7 +301,7 @@ Fajitas de res
 Agua de horchata / jamaica / tamarindo
 </div>
 </div>
-<span>$15 / $25</span>
+<span>$15 medio / $25 litro</span>
 </div>
 
 <div class="menu-item">
@@ -289,7 +328,12 @@ Agua de horchata / jamaica / tamarindo
 <img id="imgModal">
 </div>
 
-<!-- BOTÓN WHATS -->
+<!-- REEL -->
+<div id="reel" class="reel" onclick="cerrarReel()">
+<img id="reelImg">
+</div>
+
+<!-- WHATS -->
 <a class="whatsapp-btn" href="https://chat.whatsapp.com/H2Zng936zun1s6G49nkmPO" target="_blank">
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 </a>
@@ -299,12 +343,12 @@ Agua de horchata / jamaica / tamarindo
 const opciones={weekday:'long',year:'numeric',month:'long',day:'numeric'};
 document.getElementById("fecha").innerText=new Date().toLocaleDateString('es-MX',opciones);
 
-/* MODAL + ZOOM */
+/* MODAL */
 let escala = 1;
 
 function verImagen(src){
-const modal = document.getElementById("modal");
-const img = document.getElementById("imgModal");
+let modal = document.getElementById("modal");
+let img = document.getElementById("imgModal");
 
 img.src = src;
 escala = 1;
@@ -318,7 +362,7 @@ document.getElementById("modal").style.display="none";
 }
 }
 
-/* ZOOM con rueda */
+/* ZOOM */
 document.getElementById("imgModal").addEventListener("wheel", function(e){
 e.preventDefault();
 escala += e.deltaY * -0.001;
@@ -326,29 +370,30 @@ escala = Math.min(Math.max(.5, escala), 3);
 this.style.transform = "scale(" + escala + ")";
 });
 
-/* ZOOM táctil */
-let inicialDist = null;
+/* REELS */
+const reels={
+hotdogs:["./HotDogs.jpeg"],
+sincronizadas:["./Sincronizada.jpg"],
+flor:["./Flor.jpg"],
+picaditas:["./Picaditas.jpg"]
+};
 
-document.getElementById("imgModal").addEventListener("touchmove", function(e){
-if(e.touches.length===2){
-let dx = e.touches[0].clientX - e.touches[1].clientX;
-let dy = e.touches[0].clientY - e.touches[1].clientY;
-let distancia = Math.sqrt(dx*dx + dy*dy);
+let reelIndex=0;
+let reelImgs=[];
 
-if(!inicialDist) inicialDist = distancia;
-
-escala = distancia / inicialDist;
-this.style.transform = "scale(" + escala + ")";
-}
-});
-
-document.getElementById("imgModal").addEventListener("touchend", function(){
-inicialDist = null;
-});
-
-/* REELS (sin tocar tu lógica original base mínima) */
 function abrirReel(tipo){
-alert("Aquí va tu reel original: "+tipo);
+reelImgs = reels[tipo];
+reelIndex=0;
+mostrarReel();
+document.getElementById("reel").style.display="flex";
+}
+
+function mostrarReel(){
+document.getElementById("reelImg").src = reelImgs[reelIndex];
+}
+
+function cerrarReel(){
+document.getElementById("reel").style.display="none";
 }
 
 </script>
